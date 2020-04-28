@@ -2,7 +2,7 @@
   "name": "canvas-engines-comparison",
   "version": "1.0.0",
   "main": "src/index.html",
-  "repository": "https://github.com/gnykka/canvas-engines-comparison.git",
+  "repository": "https://github.com/slaylines/canvas-engines-comparison.git",
   "author": "Nataliya Stepanova",
   "license": "MIT",
   "scripts": {
