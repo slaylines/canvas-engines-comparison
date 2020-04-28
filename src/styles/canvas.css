@@ -1,15 +1,18 @@
 @import './index.css';
 
 .content {
+  position: relative;
   width: 100%;
   height: 80%;
 }
 
 .selector {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  margin-bottom: 0.5em;
 }
 .selector > span {
+  width: 80px;
   margin-right: 1em;
   font-size: 1.2em;
 }
@@ -21,6 +24,10 @@
   border-bottom-color: #fff;
   cursor: default;
   pointer-events: none;
+}
+.selector > input {
+  max-width: 60px;
+  outline: none;
 }
 
 svg, canvas {

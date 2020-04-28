@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "src/index.html",
   "repository": "https://github.com/slaylines/canvas-engines-comparison.git",
-  "author": "Nataliya Stepanova",
+  "author": "slay_lines",
   "license": "MIT",
   "scripts": {
     "start": "parcel serve src/index.html --open",
     "build": "parcel build src/index.html"
   },
   "dependencies": {
+    "fpsmeter": "0.3.1",
     "parcel-bundler": "1.12.4",
     "two.js": "0.7.0-stable.1"
   }

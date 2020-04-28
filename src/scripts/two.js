@@ -1,18 +1,35 @@
-import Two from '../../node_modules/two.js/build/two.min.js';
+import 'fpsmeter';
+import Two from 'two.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const content = document.querySelector('.content');
   const rendererLinks = content.querySelectorAll('.selector > a');
+  const countInput = content.querySelector('.count input');
 
   const width = content.clientWidth * 0.5;
   const height = content.clientHeight * 0.75;
 
+  const meter = new window.FPSMeter(
+    content, {
+      graph: 1,
+      heat: 1,
+      theme: 'light',
+      history: 25,
+      top: 0,
+      left: `${width}px`,
+      transform: 'translateX(-100%)',
+    },
+  );
+
   let two = null;
   let rendered = '';
   let count = 100;
+  let speed = 0.1;
 
   const render = () => {
     if (two) {
+      two.unbind('update');
+      two.clear();
       Two.Utils.release(two);
       two.renderer.domElement.remove();
     }
@@ -29,14 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = Math.random() * two.height;
       const size = 10 + Math.random() * 40;
 
-      return {
-        speed: Math.random(),
-        element: two.makeRectangle(x, y, size, size),
-      };
+      return two.makeRectangle(x, y, size, size);
     });
 
     two.bind('update', () => {
-      rects.forEach(r => r.element.rotation += r.speed);
+      rects.forEach(r => r.rotation += speed);
+      meter.tick();
     });
   };
 
@@ -54,6 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
       rendererLinks[rendered.index].classList.toggle('selected', true);
       render();
     });
+  });
+
+  countInput.value = count;
+  countInput.addEventListener('change', () => {
+    count = parseInt(countInput.value);
+    render();
   });
 
   render();
