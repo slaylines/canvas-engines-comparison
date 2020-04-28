@@ -4921,6 +4921,11 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
+two.js@0.7.0-stable.1:
+  version "0.7.0-stable.1"
+  resolved "https://registry.yarnpkg.com/two.js/-/two.js-0.7.0-stable.1.tgz#4999070a566c3ab1b2ba980134d0d786b46ce2db"
+  integrity sha512-4QULPtstGEyGbhMvVvCGxgm85Un6CMYqFYafw7hNan9LdqoYZqMnxsaj8pkfBT4zpRfqB98aZjGrWYoCBqKtXA==
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"

@@ -10,6 +10,7 @@
     "build": "parcel build src/index.html"
   },
   "dependencies": {
-    "parcel-bundler": "1.12.4"
+    "parcel-bundler": "1.12.4",
+    "two.js": "0.7.0-stable.1"
   }
 }

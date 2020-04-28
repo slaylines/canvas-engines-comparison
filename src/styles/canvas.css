@@ -1,0 +1,29 @@
+@import './index.css';
+
+.content {
+  width: 100%;
+  height: 80%;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+}
+.selector > span {
+  margin-right: 1em;
+  font-size: 1.2em;
+}
+.selector > a {
+  margin-right: 0.5em;
+}
+.selector > a.selected {
+  color: #333;
+  border-bottom-color: #fff;
+  cursor: default;
+  pointer-events: none;
+}
+
+svg, canvas {
+  margin-top: 1em;
+  border: 1px solid #999;
+}
