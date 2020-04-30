@@ -1,13 +1,13 @@
 {
   "name": "canvas-engines-comparison",
   "version": "1.0.0",
-  "main": "src/index.html",
+  "main": "src/pages/pixi.html",
   "repository": "https://github.com/slaylines/canvas-engines-comparison.git",
   "author": "slay_lines",
   "license": "MIT",
   "scripts": {
-    "start": "parcel serve src/index.html --open",
-    "build": "parcel build src/index.html"
+    "start": "parcel serve src/pages/pixi.html --open",
+    "build": "parcel build src/pages/pixi.html"
   },
   "dependencies": {
     "fpsmeter": "0.3.1",
