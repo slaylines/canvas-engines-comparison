@@ -10,43 +10,36 @@ class PixiEngine extends Engine {
       width: this.width,
       height: this.height,
       backgroundColor: 0xFFFFFF,
+      antialias: true,
     });
     this.app.stage.interactive = true;
+    this.graphics = new PIXI.Graphics();
+    this.app.stage.addChild(this.graphics);
 
     this.content.appendChild(this.app.view);
   }
 
-  renderRect(r) {
-    r.el.lineStyle(1, 0x000000, 1);
-    r.el.beginFill(0xFFFFFF);
-    r.el.drawRect(r.x - r.size / 2, r.y - r.size / 2, r.size, r.size);
-    r.el.endFill();
+  renderRect(x, y, size) {
+    this.graphics.lineStyle(1, 0x000000, 1);
+    this.graphics.beginFill(0xFFFFFF);
+    this.graphics.drawRect(x - size / 2, y - size / 2, size, size);
+    this.graphics.endFill();
   }
 
   onTick() {
+    this.graphics.clear();
+
     const rectsToRemove = [];
 
-    this.rects.forEach(r => {
-      r.x -= r.speed;
-
-      r.el.clear();
-      this.renderRect(r);
-
-      if (r.x + r.size / 2 < 0) rectsToRemove.push(r);
+    [...Array(this.count.value).keys()].forEach(i => {
+      const rect = this.rects[i];
+      rect.x -= rect.speed;
+      this.renderRect(rect.x, rect.y, rect.size);
+      if (rect.x + rect.size / 2 < 0) rectsToRemove.push(i);
     });
 
-    rectsToRemove.forEach(r => {
-      const index = this.rects.indexOf(r);
-
-      this.rects.splice(index, 1);
-      this.rects.push({
-        id: r.id,
-        x: this.width + r.size / 2,
-        y: r.y,
-        size: r.size,
-        speed: r.speed,
-        el: r.el,
-      });
+    rectsToRemove.forEach(i => {
+      this.rects[i].x = this.width + this.rects[i].size / 2;
     });
 
     this.meter.tick();
@@ -54,23 +47,20 @@ class PixiEngine extends Engine {
 
   render() {
     this.app.ticker.remove(this.onTick, this);
-    this.rects.forEach(r => {
-      r.el.clear();
-      this.app.stage.removeChild(r.el);
-    });
+    this.graphics.clear();
 
-    this.rects = [...Array(this.count.value).keys()].map(i => {
+    this.rects = [...Array(this.count.value).keys()].reduce((res, i) => {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
-      const rect = new PIXI.Graphics();
-      this.app.stage.addChild(rect);
-      this.renderRect({ x, y, size, el: rect });
+      this.renderRect(x, y, size);
 
-      return { id: i, x, y, size, speed, el: rect };
-    });
+      res[i] = { x, y, size, speed };
+
+      return res;
+    }, {});
 
     this.app.ticker.add(this.onTick, this);
   };

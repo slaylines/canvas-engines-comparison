@@ -18,44 +18,36 @@ class TwoEngine extends Engine {
     this.two = new Two({
       width: this.width,
       height: this.height,
-      type: Two.Types[this.rendered.name],
+      type: Two.Types['webgl'],
       autostart: true,
     }).appendTo(this.content);
 
-    const rects = [...Array(this.count.value).keys()].map(i => {
+    const rects = [...Array(this.count.value).keys()].reduce((res, i) => {
       const x = Math.random() * this.two.width;
       const y = Math.random() * this.two.height;
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
-      return {
-        id: i, x, y, size, speed,
+      res[i] = {
+        x, y, size, speed,
         el: this.two.makeRectangle(x, y, size, size),
       };
-    });
+      return res;
+    }, {});
 
     this.two.bind('update', () => {
       const rectsToRemove = [];
 
-      rects.forEach(r => {
+      [...Array(this.count.value).keys()].forEach(i => {
+        const r = rects[i];
         r.x -= r.speed;
         r.el.translation.set(r.x, r.y);
 
-        if (r.x + r.size / 2 < 0) rectsToRemove.push(r);
+        if (r.x + r.size / 2 < 0) rectsToRemove.push(i);
       });
 
-      rectsToRemove.forEach(r => {
-        const index = rects.indexOf(r);
-
-        rects.splice(index, 1);
-        rects.push({
-          id: r.id,
-          x: this.two.width + r.size / 2,
-          y: r.y,
-          size: r.size,
-          speed: r.speed,
-          el: r.el,
-        });
+      rectsToRemove.forEach(i => {
+        rects[i].x = this.two.width + rects[i].size / 2;
       });
 
       this.meter.tick();

@@ -17,7 +17,7 @@ class PaperEngine extends Engine {
     Paper.project.activeLayer.removeChildren();
     Paper.view.draw();
 
-    const rects = [...Array(this.count.value).keys()].map(i => {
+    const rects = [...Array(this.count.value).keys()].reduce((res, i) => {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
@@ -32,33 +32,25 @@ class PaperEngine extends Engine {
       path.fillColor = 'white';
       path.strokeColor = 'black';
 
-      return { id: i, x, y, size, speed, el: path };
-    });
+      res[i] = { x, y, size, speed, el: path };
+      return res;
+    }, {});
 
     Paper.view.draw();
 
     Paper.view.onFrame = () => {
       const rectsToRemove = [];
 
-      rects.forEach(r => {
+      [...Array(this.count.value).keys()].forEach(i => {
+        const r = rects[i];
         r.x -= r.speed;
         r.el.position.x = r.x;
 
-        if (r.x + r.size / 2 < 0) rectsToRemove.push(r);
+        if (r.x + r.size / 2 < 0) rectsToRemove.push(i);
       });
 
-      rectsToRemove.forEach(r => {
-        const index = rects.indexOf(r);
-
-        rects.splice(index, 1);
-        rects.push({
-          id: r.id,
-          x: this.width + r.size / 2,
-          y: r.y,
-          size: r.size,
-          speed: r.speed,
-          el: r.el,
-        });
+      rectsToRemove.forEach(i => {
+        rects[i].x = this.width + rects[i].size / 2;
       });
 
       this.meter.tick();

@@ -25,10 +25,6 @@
   cursor: default;
   pointer-events: none;
 }
-.selector > input {
-  max-width: 60px;
-  outline: none;
-}
 
 svg, canvas {
   margin-top: 1em;
