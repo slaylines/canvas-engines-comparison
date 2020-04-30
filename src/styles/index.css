@@ -25,11 +25,19 @@ h1 {
   margin-bottom: 0.5em;
 }
 
+h1 > span {
+  margin-right: 1em;
+}
 h1 > a {
+  font-size: 0.7em;
+  font-weight: normal;
+}
+h1 > a.arrow {
   color: #999;
+  font-size: 1em;
   border-bottom: none;
 }
-h1 > a:hover {
+h1 > a.arrow:hover {
   color: #333;
 }
 
