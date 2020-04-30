@@ -4,16 +4,6 @@ import Two from 'two.js';
 class TwoEngine extends Engine {
   constructor() {
     super();
-    this.two = null;
-  }
-
-  render() {
-    if (this.two) {
-      this.two.unbind('update');
-      this.two.clear();
-      Two.Utils.release(this.two);
-      this.two.renderer.domElement.remove();
-    }
 
     this.two = new Two({
       width: this.width,
@@ -21,6 +11,13 @@ class TwoEngine extends Engine {
       type: Two.Types['webgl'],
       autostart: true,
     }).appendTo(this.content);
+  }
+
+  render() {
+    if (this.two) {
+      this.two.unbind('update');
+      this.two.clear();
+    }
 
     const rects = [...Array(this.count.value).keys()].reduce((res, i) => {
       const x = Math.random() * this.two.width;
