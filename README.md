@@ -11,5 +11,3 @@
 $ yarn build
 $ yarn start
 ```
-
-This project uses [Parcel.js](https://parceljs.org/).
