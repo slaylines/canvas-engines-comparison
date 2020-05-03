@@ -5,7 +5,7 @@ class Engine {
     this.content = document.querySelector('.content');
     this.countLinks = this.content.querySelectorAll('.selector > a');
 
-    this.width = Math.min(this.content.clientWidth, 800);
+    this.width = Math.min(this.content.clientWidth, 1000);
     this.height = this.content.clientHeight * 0.75;
     this.count = 0;
 
@@ -20,7 +20,7 @@ class Engine {
         heat: 1,
         theme: 'light',
         history: 25,
-        top: 0,
+        top: '-10px',
         left: `${this.width}px`,
         transform: 'translateX(-100%)',
       },
