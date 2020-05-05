@@ -28,10 +28,12 @@ class Engine {
   }
 
   initSettings() {
+    const count = JSON.parse(localStorage.getItem('count'));
+    this.count = count || { index: 0, value: 1000 };
+    localStorage.setItem('count', JSON.stringify(this.count));
+
     this.countLinks.forEach((link, index) => {
-      if (link.classList.contains('selected')) {
-        this.count = { index: index, value: parseInt(link.innerText) };
-      }
+      this.countLinks[this.count.index].classList.toggle('selected', true);
 
       link.addEventListener('click', event => {
         event.preventDefault();
@@ -40,6 +42,8 @@ class Engine {
         this.countLinks[this.count.index].classList.toggle('selected', false);
         this.count = { index: index, value: parseInt(link.innerText) };
         this.countLinks[this.count.index].classList.toggle('selected', true);
+
+        localStorage.setItem('count', JSON.stringify(this.count));
 
         this.render();
       });
