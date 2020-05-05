@@ -1,5 +1,7 @@
 # Canvas Engines Comparison
 
+http://benchmarks.slaylines.io/
+
 ## Description
 
 - [PixiJS](https://pixijs.com) vs [Two.js](https://two.js.org/) vs [Paper.js](http://paperjs.org/);
