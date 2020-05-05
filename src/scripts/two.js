@@ -19,29 +19,29 @@ class TwoEngine extends Engine {
       this.two.clear();
     }
 
-    const rects = [...Array(this.count.value).keys()].reduce((res, i) => {
+    const rects = {};
+    for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.two.width;
       const y = Math.random() * this.two.height;
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
-      res[i] = {
+      rects[i] = {
         x, y, size, speed,
         el: this.two.makeRectangle(x, y, size, size),
       };
-      return res;
-    }, {});
+    }
 
     this.two.bind('update', () => {
       const rectsToRemove = [];
 
-      [...Array(this.count.value).keys()].forEach(i => {
+      for (let i = 0; i < this.count.value; i++) {
         const r = rects[i];
         r.x -= r.speed;
         r.el.translation.set(r.x, r.y);
 
         if (r.x + r.size / 2 < 0) rectsToRemove.push(i);
-      });
+      }
 
       rectsToRemove.forEach(i => {
         rects[i].x = this.two.width + rects[i].size / 2;

@@ -31,12 +31,12 @@ class PixiEngine extends Engine {
 
     const rectsToRemove = [];
 
-    [...Array(this.count.value).keys()].forEach(i => {
+    for (let i = 0; i < this.count.value; i++) {
       const rect = this.rects[i];
       rect.x -= rect.speed;
       this.renderRect(rect.x, rect.y, rect.size);
       if (rect.x + rect.size / 2 < 0) rectsToRemove.push(i);
-    });
+    }
 
     rectsToRemove.forEach(i => {
       this.rects[i].x = this.width + this.rects[i].size / 2;
@@ -49,18 +49,16 @@ class PixiEngine extends Engine {
     this.app.ticker.remove(this.onTick, this);
     this.graphics.clear();
 
-    this.rects = [...Array(this.count.value).keys()].reduce((res, i) => {
+    this.rects = {};
+    for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
       this.renderRect(x, y, size);
-
-      res[i] = { x, y, size, speed };
-
-      return res;
-    }, {});
+      this.rects[i] = { x, y, size, speed };
+    }
 
     this.app.ticker.add(this.onTick, this);
   };
