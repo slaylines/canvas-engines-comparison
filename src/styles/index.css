@@ -14,6 +14,10 @@ main, footer {
   padding: 1em 2.5em;
 }
 
+main {
+  position: relative;
+}
+
 footer {
   position: fixed;
   width: 100%;
@@ -53,22 +57,4 @@ h1 > a {
   font-size: 0.7em;
   margin-right: 0.2em;
   font-weight: normal;
-}
-
-.engines-list {
-  padding-bottom: 1em;
-}
-
-.engines-list > a {
-  margin-right: 0.5em;
-  font-size: 1.4em;
-}
-
-.idea {
-  max-width: 460px;
-  font-size: 1.2em;
-  line-height: 1.4em;
-}
-
-.results {
 }

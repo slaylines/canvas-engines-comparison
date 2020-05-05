@@ -1,6 +1,6 @@
 # Canvas Engines Comparison
 
-http://benchmarks.slaylines.io/
+https://benchmarks.slaylines.io/
 
 ## Description
 
