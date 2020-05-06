@@ -12,34 +12,21 @@ class PixiEngine extends Engine {
       backgroundColor: 0xFFFFFF,
       antialias: true,
     });
-    this.app.stage.interactive = true;
-    this.graphics = new PIXI.Graphics();
-    this.app.stage.addChild(this.graphics);
-
     this.content.appendChild(this.app.view);
   }
 
-  renderRect(x, y, size) {
-    this.graphics.lineStyle(1, 0x000000, 1);
-    this.graphics.beginFill(0xFFFFFF);
-    this.graphics.drawRect(x - size / 2, y - size / 2, size, size);
-    this.graphics.endFill();
-  }
-
   onTick() {
-    this.graphics.clear();
-
     const rectsToRemove = [];
 
     for (let i = 0; i < this.count.value; i++) {
       const rect = this.rects[i];
       rect.x -= rect.speed;
-      this.renderRect(rect.x, rect.y, rect.size);
+      rect.el.position.x = rect.x - rect.size / 2;
       if (rect.x + rect.size / 2 < 0) rectsToRemove.push(i);
     }
 
     rectsToRemove.forEach(i => {
-      this.rects[i].x = this.width + this.rects[i].size / 2;
+      this.rects[i].x = this.width + this.rects[i].size;
     });
 
     this.meter.tick();
@@ -47,17 +34,22 @@ class PixiEngine extends Engine {
 
   render() {
     this.app.ticker.remove(this.onTick, this);
-    this.graphics.clear();
-
+    this.app.stage.removeChildren();
     this.rects = {};
     for (let i = 0; i < this.count.value; i++) {
-      const x = Math.random() * this.width;
-      const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
+      const x = Math.random() * this.width - size / 2;
+      const y = Math.random() * this.height - size / 2;
       const speed = 1 + Math.random();
 
-      this.renderRect(x, y, size);
-      this.rects[i] = { x, y, size, speed };
+      const rect = new PIXI.Graphics();
+      rect.lineStyle(1, 0x000000, 1);
+      rect.beginFill(0xffffff);
+      rect.drawRect(0, 0, size, size);
+      rect.endFill();
+      rect.position.set(x, y);
+      this.app.stage.addChild(rect);
+      this.rects[i] = { x, y, size, speed, el: rect };
     }
 
     this.app.ticker.add(this.onTick, this);
