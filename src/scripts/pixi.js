@@ -26,7 +26,7 @@ class PixiEngine extends Engine {
     }
 
     rectsToRemove.forEach(i => {
-      this.rects[i].x = this.width + this.rects[i].size;
+      this.rects[i].x = this.width + this.rects[i].size / 2;
     });
 
     this.meter.tick();
