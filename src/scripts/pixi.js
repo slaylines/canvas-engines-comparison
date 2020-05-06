@@ -21,7 +21,7 @@ class PixiEngine extends Engine {
     for (let i = 0; i < this.count.value; i++) {
       const rect = this.rects[i];
       rect.x -= rect.speed;
-      rect.el.position.x = rect.x - rect.size / 2;
+      rect.el.position.x = rect.x;
       if (rect.x + rect.size / 2 < 0) rectsToRemove.push(i);
     }
 
@@ -45,9 +45,9 @@ class PixiEngine extends Engine {
       const rect = new PIXI.Graphics();
       rect.lineStyle(1, 0x000000, 1);
       rect.beginFill(0xffffff);
-      rect.drawRect(0, 0, size, size);
+      rect.drawRect(-size / 2, -size / 2, size, size);
       rect.endFill();
-      rect.position.set(x - size / 2, y - size / 2);
+      rect.position.set(x, y);
       this.app.stage.addChild(rect);
       this.rects[i] = { x, y, size, speed, el: rect };
     }
