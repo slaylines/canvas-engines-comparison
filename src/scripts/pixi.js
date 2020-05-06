@@ -37,9 +37,9 @@ class PixiEngine extends Engine {
     this.app.stage.removeChildren();
     this.rects = {};
     for (let i = 0; i < this.count.value; i++) {
+      const x = Math.random() * this.width;
+      const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
-      const x = Math.random() * this.width - size / 2;
-      const y = Math.random() * this.height - size / 2;
       const speed = 1 + Math.random();
 
       const rect = new PIXI.Graphics();
@@ -47,7 +47,7 @@ class PixiEngine extends Engine {
       rect.beginFill(0xffffff);
       rect.drawRect(0, 0, size, size);
       rect.endFill();
-      rect.position.set(x, y);
+      rect.position.set(x - size / 2, y - size / 2);
       this.app.stage.addChild(rect);
       this.rects[i] = { x, y, size, speed, el: rect };
     }
