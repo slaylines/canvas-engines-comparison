@@ -50,11 +50,7 @@ h1 {
   margin-bottom: 0.5em;
 }
 
-h1 > span {
-  margin-right: 1em;
-}
-h1 > a {
+h1 > * {
   font-size: 0.7em;
-  margin-right: 0.2em;
-  font-weight: normal;
+  margin-right: 0.25em;
 }

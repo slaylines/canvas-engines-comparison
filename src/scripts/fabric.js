@@ -1,6 +1,15 @@
 import Engine from './engine';
 import { fabric } from 'fabric';
 
+window.cancelRequestAnimFrame = (() => {
+  return window.cancelAnimationFrame ||
+         window.webkitCancelRequestAnimationFrame ||
+         window.mozCancelRequestAnimationFrame ||
+         window.oCancelRequestAnimationFrame ||
+         window.msCancelRequestAnimationFrame ||
+         clearTimeout;
+})();
+
 class FabricEngine extends Engine {
   constructor() {
     super();
@@ -29,12 +38,17 @@ class FabricEngine extends Engine {
     }
     this.fabricCanvas.renderAll();
     this.meter.tick();
-    fabric.util.requestAnimFrame(() => {
+
+    this.request = fabric.util.requestAnimFrame(() => {
       this.requestAnimFrame();
     });
   }
 
   render() {
+    // clear the canvas
+    this.fabricCanvas.clear();
+    window.cancelRequestAnimFrame(this.request);
+
     // rectangle creation
     const rects = new Array(this.count);
     for (let i = 0; i < this.count.value; i++) {
@@ -55,7 +69,8 @@ class FabricEngine extends Engine {
     }
     this.rects = rects;
     this.fabricCanvas.add(...rects.map(rect => rect.el));
-    fabric.util.requestAnimFrame(() => {
+
+    this.request = fabric.util.requestAnimFrame(() => {
       this.requestAnimFrame();
     });
   };
