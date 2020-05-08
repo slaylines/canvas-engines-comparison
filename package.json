@@ -12,6 +12,7 @@
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"
   },
   "dependencies": {
+    "fabric": "3.6.3",
     "fpsmeter": "0.3.1",
     "paper": "0.12.4",
     "parcel-bundler": "1.12.4",
