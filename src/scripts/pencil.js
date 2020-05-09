@@ -14,7 +14,7 @@ class PencilEngine extends Engine {
 
   init () {
     this.scene
-      .on('draw', this.onTick, true)
+      .on('draw', this.onTick.bind(this), true)
       .startLoop();
   }
 
