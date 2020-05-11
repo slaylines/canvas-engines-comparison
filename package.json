@@ -16,6 +16,7 @@
     "fpsmeter": "0.3.1",
     "paper": "0.12.4",
     "parcel-bundler": "1.12.4",
+    "pencil.js": "^1.17.0",
     "pixi.js": "5.2.3",
     "two.js": "0.7.0-stable.1"
   }
