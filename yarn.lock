@@ -851,6 +851,396 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
+"@pencil.js/arc@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/arc/-/arc-1.17.0.tgz#ea2be140e3df68af8661eec22c0a2d628e82c036"
+  integrity sha512-p3G4UiYYaXOzS/7quwVcKQJUUQmpi7CZCFPt4WmsxISMLqjya9os4jD0unHUfwv6gnBGcyVfXT4JDaFOs811AQ==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/line" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+
+"@pencil.js/base-event@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/base-event/-/base-event-1.17.0.tgz#4818207831c1ee16ac7454878575e9675be7eb20"
+  integrity sha512-5EyNNGH5ftkhEUWOKiXVeY0b52RVVCuGqjqcVNO8Gr1K0x3YnC55UamrbGLk3HhJ9ata5SgykUQ30afUNYBJkg==
+
+"@pencil.js/button@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/button/-/button-1.17.0.tgz#709cb27416501b107a3c27b24d9e326518f8c746"
+  integrity sha512-LnY1on3fAiKm3qR5M1BYAij8M7wEXYs0niIBypKhI1lozAZN0aMXJ00B+O8QcROzFOWF/JEM0KHgu3pOmtUviw==
+  dependencies:
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/text" "^1.17.0"
+
+"@pencil.js/checkbox@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/checkbox/-/checkbox-1.17.0.tgz#e426ca933cf41c8ab7f830876b5882f6c3563221"
+  integrity sha512-HDtATFaTXGWMlQ8h2uRERa5o6CsItm5hv5aL+45fFYpihUR+0tW/VY0TcFVuSL85ncZhBYDmMslVjfe9H9gnOA==
+  dependencies:
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/square" "^1.17.0"
+
+"@pencil.js/circle@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/circle/-/circle-1.17.0.tgz#a3995a9a7ed6ffc231c6612c09b1ddebcf3e7201"
+  integrity sha512-5yOlsrAlJUJwn6HjhhilC0kc8B8kFCxvSDaNBYeExkw/O1Kw1DksjYzoNfyrHreTv/Xtxz3Y8RUHj/185tOClw==
+  dependencies:
+    "@pencil.js/ellipse" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+
+"@pencil.js/color@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/color/-/color-1.17.0.tgz#7004601a115646e1c4e995da17af2a43ad4f75cc"
+  integrity sha512-jHE7G4XPrYLvz3HBv1fYC6GE/eTqO4+BTi/+h7h4tPEWGJWtaKRpWQ1t0Fbfgy7LNpwPvZlO23anvDRhzx7xhA==
+  dependencies:
+    "@pencil.js/math" "^1.17.0"
+    color-convert "^1.9.3"
+
+"@pencil.js/component@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/component/-/component-1.17.0.tgz#650d04e395ad4b6169a3f3889aa00c667b84287f"
+  integrity sha512-vJAY3vxlIoTGULeUlibIKjawDkyYV3zV7cNufujjmDZHZUpkieAdW5TQuSwHRZaX8FGP33CxD4fKjs2gLrJrjA==
+  dependencies:
+    "@pencil.js/container" "^1.17.0"
+    "@pencil.js/offscreen-canvas" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/container@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/container/-/container-1.17.0.tgz#c6d496c7a2536b3af1ab3511478cdb5aff6210f1"
+  integrity sha512-Xbzj8j/3/YaR0s9neIjIyYuCzjZ++6cRkVjWiBaaCPwpA/YDK9qmecCSQRua/SkG1hREvuC8fY4kDTrok42XjQ==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/event-emitter" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/draggable@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/draggable/-/draggable-1.17.0.tgz#024353b006941838f616a866351e3a161cbf3d1e"
+  integrity sha512-5hUTqYp8kyqCbXqytpJKjJnytGgsr2L7xAQO3YQS1QOAmh9zz1iZZt37eY9TzwJeOtc/EY/v/fjc/fiWaSOsOA==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/vector" "^1.17.0"
+
+"@pencil.js/ellipse@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/ellipse/-/ellipse-1.17.0.tgz#a12a5785f9b8028bb2c8fa873aa2832abcce0790"
+  integrity sha512-TiT+uB6Aq/jLEvWFz1LiRPbBBUqOV0K1YBEXh5QUH+z9cdBEKgzjX3Qx7UUntVjEjL02ExO0H29yWNygml9duA==
+  dependencies:
+    "@pencil.js/arc" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+
+"@pencil.js/event-emitter@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/event-emitter/-/event-emitter-1.17.0.tgz#9395bf71292474b46df604c00cd571ba98034782"
+  integrity sha512-XpUcQZiiZtBLw2Gy5Gwx+Dh6fn20PKwCoi/6vpFKtb90IxlR1E/o5hhH1XvG+2Zsu434LJFV1kbmFV21zEAnyA==
+
+"@pencil.js/heart@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/heart/-/heart-1.17.0.tgz#1419e375b2700aa3de51b2279727f41a17ec76e6"
+  integrity sha512-XyC2yZcPDq+q9+JAAMzIJXlcf4iYeXCFMr/Io0SMiQ/beC9lb6keEFF2xORvlIr9lkctcWYNFeHp+ewHRzWXfg==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+
+"@pencil.js/image@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/image/-/image-1.17.0.tgz#506f288fd571d5086dba1ddad3348a84967bf6cf"
+  integrity sha512-BKwQZDyPfNSlpgzyrbHsCVogemA68auMJ1zZXPFtdoPO8VGvqcR3v1q/5Ulk7HkgtonrvwM+wZoA4X96ZlXSAA==
+  dependencies:
+    "@pencil.js/network-event" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+
+"@pencil.js/input@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/input/-/input-1.17.0.tgz#5322961dca51e5cd7a1e7b5410c3e414968c6334"
+  integrity sha512-+sJ3LNMEKPbTIKaYl0A+1ZMS1b8St/LOOyw9wxTDfqdYZQ4t5oQs3advMkpF/Wrh1tgCuI+BMfvcnqgiO41rkQ==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/container" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+
+"@pencil.js/keyboard-event@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/keyboard-event/-/keyboard-event-1.17.0.tgz#9f885e4f61abb28e8cba7d7d742cd63bd4e006bb"
+  integrity sha512-gNZSP4ZwCWulKAWvlBSJazY3FkSsAir0H0oUgVfXlqsABEQ9VWs8tOUM7UTzuotgAb/ANUTgk5MGIRsB3bJgyA==
+  dependencies:
+    "@pencil.js/arc" "^1.17.0"
+    "@pencil.js/base-event" "^1.17.0"
+
+"@pencil.js/knob@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/knob/-/knob-1.17.0.tgz#782a80643070504cdd092834cca85c661d505f8e"
+  integrity sha512-a2POpeZI6pLziGaj1d1Iv2KzSLxtKUvQHR0R934qUBWN8lGzpPp3QzIOe+fbVwC0+Krijqz8ROdCjjyGBuIqWg==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/circle" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/line" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/rotatable" "^1.17.0"
+
+"@pencil.js/line@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/line/-/line-1.17.0.tgz#4b1790fb12fc22572f16d79bec16f55dcbf17bc1"
+  integrity sha512-Xtgs84bt9w06ac7InUJDNG0pUcWIbI0v50g5XjOoLqMB10G1RLRmOSMdlE5pJdE8kV+Xv0aOCQ1rvBxivgAduw==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/linear-gradient@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/linear-gradient/-/linear-gradient-1.17.0.tgz#a6a1749bedbebec32c941d3940269566f80f9e2b"
+  integrity sha512-Ht9wP6mg02P8ANtgTsFrExLrhxirMXGZXQBkqzYrNn8bvzHYKUv4kEfu5GgmE+K51kTmKWc6msyoUHBGQc50+g==
+  dependencies:
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/math@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/math/-/math-1.17.0.tgz#d9bb273a8029bbc1d506906abad86c80367a07be"
+  integrity sha512-KHOoxrli3eNNZc+q2NabWJYWAycd8AtR3DbzdRffFPumcI4l0EVATWRki7tXM3nHpEfhfFAU9GDRX9FSvPA1Jg==
+
+"@pencil.js/mouse-event@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/mouse-event/-/mouse-event-1.17.0.tgz#d7019e9810c6546c1b0b04c7b467b6d9a07d48ce"
+  integrity sha512-8H9NvV9DUGd3yEIRgFOKbj3Qtatusjo6+mhBIbchcGiM2d4GgKEMoaBvfirTUIyibrydwF3GQl/WhrEFhJaxnw==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/navigation@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/navigation/-/navigation-1.17.0.tgz#0bc86bbde7688e7367eec328c7b1bc26b91dc95d"
+  integrity sha512-JNTV1XcXJG9t87EVgrKyUPLhbprBuvR2WiT4feDHoY/EArTF694gb5gWVGHQobhwZmfTQUTllHEL+Gxzv0ttkw==
+  dependencies:
+    "@pencil.js/scene" "^1.17.0"
+
+"@pencil.js/network-event@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/network-event/-/network-event-1.17.0.tgz#25ef35df07914c67496a4f63e5ea16d443fe2c7d"
+  integrity sha512-M6J/spNPJiQFU7VEDYp5UYbg9G7OoapTfapMQH8JhM0cr1mfJLk5J+fAoJ0+M7VSP2yFiOhPzjCQNVTnCVAcRg==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+
+"@pencil.js/offscreen-canvas@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/offscreen-canvas/-/offscreen-canvas-1.17.0.tgz#12be6aa5565e984bc04f435fe1d396892f492793"
+  integrity sha512-BYpCifTkhrZPNTdyqu6UQ+I2a2x7Q+lTCEDsdoxp95x1H8n5s0DQEyi5szCAHmmGjbmn8KzkjJkGe1WCB6MXCA==
+  dependencies:
+    "@pencil.js/container" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/vector" "^1.17.0"
+
+"@pencil.js/particles@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/particles/-/particles-1.17.0.tgz#014607f14d100eaf40e77dbaf2b429ab0b678aa6"
+  integrity sha512-3R9IAUfVfxiveWDTC+zp/5qhkZhmDe65wFW8OsegqnlhiC8n/0XcIm0ExRBP5EFrmqp9pi9/T4wllzfYZ1LJPw==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/path@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/path/-/path-1.17.0.tgz#81f8293b84c3f038194bff60aeb676ff24ae2f28"
+  integrity sha512-bIvMRuI6Vhr6SlDahGve4p+1fhzR2tc0CWUsIYlCDD3BYRV0sMN+4X3rDhoJJx64CfcnBRVds+NMbqz2CbFh6g==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/line" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/spline" "^1.17.0"
+    "@pencil.js/vector" "^1.17.0"
+
+"@pencil.js/polygon@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/polygon/-/polygon-1.17.0.tgz#377eff5234f41357ff6e56d63750e9da39409234"
+  integrity sha512-efsX09pakEy0op317hibCoYz4AvwTvVXPJsiYxCskPq9VNtLu0ZT0J0vk4+xM6ULmlANAekuHJZ/H+zbzSeFVw==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/position@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/position/-/position-1.17.0.tgz#68eda9dd7000fe7e07063a1398b660bd1421ab83"
+  integrity sha512-g9amHRN+Q67yDzFT7sP4uSN83nF8P7I5BPBSf+hA7z5IV4h3/s7qhuDHo07Zcfc3PKrrkGt4JhNXnEN5J1yd6Q==
+  dependencies:
+    "@pencil.js/math" "^1.17.0"
+
+"@pencil.js/progress-bar@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/progress-bar/-/progress-bar-1.17.0.tgz#b754b31fcf1549c781b5d72df02e6664b357c818"
+  integrity sha512-NBicPxFQVFdcK2azvSHkZUxPn2O048p/rrLh5KCHOukDs5r4Au1KPEocytKk1uzAudDDdaGKYpGx5uUIwEMGNg==
+  dependencies:
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+
+"@pencil.js/progress-pie@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/progress-pie/-/progress-pie-1.17.0.tgz#2ce78ba02a6c0b4f1b5e4203371972bc9447a57b"
+  integrity sha512-KYu4XqylJiJyp6Qlkm9XXYtR2/vuTiGdFZm55f6CNPSstqnhjWTPGo/K+TPs/Juwy3h14F/P9xx6y3mnsxbeGA==
+  dependencies:
+    "@pencil.js/arc" "^1.17.0"
+    "@pencil.js/circle" "^1.17.0"
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+
+"@pencil.js/radial-gradient@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/radial-gradient/-/radial-gradient-1.17.0.tgz#df2ec16bfd9b9bb6aaee1ee47a451c8607228abd"
+  integrity sha512-JbIhmPaAukmyy78irHZ8mF/monqKDyA7gpggwY/DoOFCZ3JfETxcXxdrX0zKGp7k0GoYRf4o79mb0HLiFum6Lg==
+  dependencies:
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/rectangle@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/rectangle/-/rectangle-1.17.0.tgz#b0e6595e2a499033a5c4ad42dbf78f23c2201ce7"
+  integrity sha512-oeejr57ZlBCgEDp/MUos+gWl7qsA++6DCD6MujKmEwxZjNCAdpStPDvdNs4zGbWDo4Jj5kJWTJHAf6R+YJi4SA==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/regular-polygon@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/regular-polygon/-/regular-polygon-1.17.0.tgz#1be5157dc0eb4cc7dbbc5e778b16a8984cdf2a14"
+  integrity sha512-Z/kScfoG4nd1wsk7gfB/j7Eiz7iAADx3TQoRi6j2PtxwYbXIwaKmVISxK3SKEtucs2gJRR/N+Vqtn5ObsM/M/w==
+  dependencies:
+    "@pencil.js/arc" "^1.17.0"
+    "@pencil.js/keyboard-event" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/polygon" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/resizable@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/resizable/-/resizable-1.17.0.tgz#37fe3d6f0df2516964ce6aecd48cbb31b52c5fde"
+  integrity sha512-qOvwshlUnNUu+7Ajp307tDCj8TbTKXe12jrMYWTBYImCdWc4uS6TtveFuOjZIpUV7pREQDcKfYgs4UyK4V7peA==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/draggable" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/polygon" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+    "@pencil.js/square" "^1.17.0"
+
+"@pencil.js/rotatable@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/rotatable/-/rotatable-1.17.0.tgz#af3cf703105ccb0a21038e0f4516221069a887c4"
+  integrity sha512-V8jdT8yy9+3J+q63w3c06g5M6kSqcmL3CnlTZ9e81Xr/HlURPbEiJfnx8LqObCC++EIiV87us+rJAmpizOs1lQ==
+  dependencies:
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+
+"@pencil.js/scene@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/scene/-/scene-1.17.0.tgz#03d2e27810ac30ef7ee61b4185b6003cf1182734"
+  integrity sha512-9ZID5CBs0zcWI3tUVfxzQcrrGZmX+9YV4LsIuPHwIYjmc50BPiQzv1ZeyDrdSJkqQF9mlpkGeDzcfC3NZUgNqQ==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/keyboard-event" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/offscreen-canvas" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/select@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/select/-/select-1.17.0.tgz#68234bb044a5bc6079da47046ea07845d909a60a"
+  integrity sha512-YKCHJkp6dxw/ywDgpMC+fGibe5t9L+DU1gYEROU1RV/2SjZZ/6NQn88HrqBPCZ0I8Ym1Y+yzzdixAaIIRH4KIg==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+    "@pencil.js/text" "^1.17.0"
+    "@pencil.js/triangle" "^1.17.0"
+
+"@pencil.js/slider@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/slider/-/slider-1.17.0.tgz#56c39a606e6f2af0eec512f68e2aa534ef061592"
+  integrity sha512-kEo6ioBxKW+tJ36PFUBv7KeBq72Ust03YLzVTRduSzbZZ78+VbHBQuRI9VBx8TnM4I+Vb/tfGsiJ1cXKoxKaTQ==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/circle" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/container" "^1.17.0"
+    "@pencil.js/draggable" "^1.17.0"
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/vector" "^1.17.0"
+
+"@pencil.js/spline@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/spline/-/spline-1.17.0.tgz#a2803e0d43da78b15f59f81c4051c67f0259925e"
+  integrity sha512-8dymM3DsmTfnnVcCdhiaqCfTBHFj7ZvEAodsyefIExGVVvAG+q9TTFM2gjw7H97Ckla0gL/djKzYRuLxm7/6Mw==
+  dependencies:
+    "@pencil.js/line" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+
+"@pencil.js/sprite@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/sprite/-/sprite-1.17.0.tgz#9ba42fe07247965e19cf6a422502655e7ca00023"
+  integrity sha512-Sj3pHj/HkLhfPOXMRtvYv78fSQuwF0YRBEgXqJRl7bWLG3B6u81e5ut+/Mjc3Xs/gb3WVfNZl2MRuwmS+lwjzQ==
+  dependencies:
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/image" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    picomatch "^2.1.1"
+
+"@pencil.js/square@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/square/-/square-1.17.0.tgz#9ca30b26dcd177613b1e1f80609824b12295e660"
+  integrity sha512-uYu6GyF6AWfYdPQMyN1GeBNn/aBt+rhP1Mcaws6QS2WO4dHYn8nzdhUtmtWxbolhTdH/6hZBZXl+oY1B77mygQ==
+  dependencies:
+    "@pencil.js/rectangle" "^1.17.0"
+
+"@pencil.js/star@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/star/-/star-1.17.0.tgz#d828ee5121150fdb1cc645344585338ee6708a19"
+  integrity sha512-55w8el99r/rNc5rspZ9iexev6PjT22/p9jHVs8Vj6HFM/iJ18NmVKhFBiQahZB1GVskQ5mvq/ppSuFzx2n1zeg==
+  dependencies:
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/regular-polygon" "^1.17.0"
+
+"@pencil.js/text@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/text/-/text-1.17.0.tgz#4e72f4853e64ea42242e6abd42036d3d713afad2"
+  integrity sha512-2EHlIggC97wixJP5MYh9QE5A2FvjF2BkrYkAecR0BdBinFUMw42/U8EngNYWSOA8woRcI7gs19MBlfMN4Mbkhg==
+  dependencies:
+    "@pencil.js/network-event" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+    "@sindresorhus/fnv1a" "^1.0.0"
+    text-direction "^1.1.0"
+
+"@pencil.js/triangle@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/triangle/-/triangle-1.17.0.tgz#0f2ada088049ffa9382346093a3eda3eb533735b"
+  integrity sha512-JwyYiS9GyzzspTXbHuvrnT4nkBPRnMUdlDZnQwyZCV/9WEEwLllvrkXq3sme8MisNt07SvGYEbDOygoeE+KUsQ==
+  dependencies:
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/regular-polygon" "^1.17.0"
+
+"@pencil.js/vector@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@pencil.js/vector/-/vector-1.17.0.tgz#de36a7c09a1a62d20166d171d793aef1d904bc3b"
+  integrity sha512-CZ9VtH4YZuMDjR/cB46pImaZuJZ/mqhIYDOJZCxs/JsVkiuGsR05Xx8qpyuyMRrHX1bllvbnkxfF42RYer/GdQ==
+  dependencies:
+    "@pencil.js/position" "^1.17.0"
+
 "@pixi/accessibility@5.2.3":
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/@pixi/accessibility/-/accessibility-5.2.3.tgz#1ac7ae4cf30eb3c58917e38fcac88a7f8a1fb9f7"
@@ -1162,6 +1552,11 @@
     earcut "^2.1.5"
     eventemitter3 "^3.1.0"
     url "^0.11.0"
+
+"@sindresorhus/fnv1a@^1.0.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/fnv1a/-/fnv1a-1.2.0.tgz#d554da64c406f3b62ad06dfce9efd537a4a55de4"
+  integrity sha512-5ezb/dBSTWtKQ4sLQwMgOJyREXJcZZkTMbendMwKrXTghUhWjZhstzkkmt4/WkFy/GSTSGzfJOKU7dEXv3C/XQ==
 
 "@types/q@^1.5.1":
   version "1.5.2"
@@ -1783,7 +2178,7 @@ collection-visit@^1.0.0:
     map-visit "^1.0.0"
     object-visit "^1.0.0"
 
-color-convert@^1.9.0, color-convert@^1.9.1:
+color-convert@^1.9.0, color-convert@^1.9.1, color-convert@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
@@ -4282,6 +4677,56 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+pencil.js@1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/pencil.js/-/pencil.js-1.17.0.tgz#6f13e4cda01e2867f5a0021533dfba9ff83d2dc7"
+  integrity sha512-Cw2hbGQdxiP7aMgP6gVtNgGM//ExRVsKlqBQSnD4VZYf98LCMgQSjQx0Nd7hnrkZt+LD1yGcwKpVga7o7x2GtQ==
+  dependencies:
+    "@pencil.js/arc" "^1.17.0"
+    "@pencil.js/base-event" "^1.17.0"
+    "@pencil.js/button" "^1.17.0"
+    "@pencil.js/checkbox" "^1.17.0"
+    "@pencil.js/circle" "^1.17.0"
+    "@pencil.js/color" "^1.17.0"
+    "@pencil.js/component" "^1.17.0"
+    "@pencil.js/container" "^1.17.0"
+    "@pencil.js/draggable" "^1.17.0"
+    "@pencil.js/ellipse" "^1.17.0"
+    "@pencil.js/event-emitter" "^1.17.0"
+    "@pencil.js/heart" "^1.17.0"
+    "@pencil.js/image" "^1.17.0"
+    "@pencil.js/input" "^1.17.0"
+    "@pencil.js/keyboard-event" "^1.17.0"
+    "@pencil.js/knob" "^1.17.0"
+    "@pencil.js/line" "^1.17.0"
+    "@pencil.js/linear-gradient" "^1.17.0"
+    "@pencil.js/math" "^1.17.0"
+    "@pencil.js/mouse-event" "^1.17.0"
+    "@pencil.js/navigation" "^1.17.0"
+    "@pencil.js/network-event" "^1.17.0"
+    "@pencil.js/offscreen-canvas" "^1.17.0"
+    "@pencil.js/particles" "^1.17.0"
+    "@pencil.js/path" "^1.17.0"
+    "@pencil.js/polygon" "^1.17.0"
+    "@pencil.js/position" "^1.17.0"
+    "@pencil.js/progress-bar" "^1.17.0"
+    "@pencil.js/progress-pie" "^1.17.0"
+    "@pencil.js/radial-gradient" "^1.17.0"
+    "@pencil.js/rectangle" "^1.17.0"
+    "@pencil.js/regular-polygon" "^1.17.0"
+    "@pencil.js/resizable" "^1.17.0"
+    "@pencil.js/rotatable" "^1.17.0"
+    "@pencil.js/scene" "^1.17.0"
+    "@pencil.js/select" "^1.17.0"
+    "@pencil.js/slider" "^1.17.0"
+    "@pencil.js/spline" "^1.17.0"
+    "@pencil.js/sprite" "^1.17.0"
+    "@pencil.js/square" "^1.17.0"
+    "@pencil.js/star" "^1.17.0"
+    "@pencil.js/text" "^1.17.0"
+    "@pencil.js/triangle" "^1.17.0"
+    "@pencil.js/vector" "^1.17.0"
+
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -4291,6 +4736,11 @@ physical-cpu-count@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/physical-cpu-count/-/physical-cpu-count-2.0.0.tgz#18de2f97e4bf7a9551ad7511942b5496f7aba660"
   integrity sha1-GN4vl+S/epVRrXURlCtUlverpmA=
+
+picomatch@^2.1.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
+  integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
 
 pixi.js@5.2.3:
   version "5.2.3"
@@ -5557,6 +6007,11 @@ terser@^4.3.9:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+text-direction@^1.1.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/text-direction/-/text-direction-1.3.0.tgz#881f723abebe0112900f3aa1683f5e066dfaea2b"
+  integrity sha512-itH4ykFaVUXss3yfvrr/Hv+PzABhNjKHk7JqPzP/l5ACSjGZfO6J0JCcJQvBa0EAM03FMxqLeUC+S5kDZsIgyg==
 
 through2@^2.0.0, through2@~2.0.3:
   version "2.0.5"
