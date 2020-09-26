@@ -14,6 +14,7 @@
   "dependencies": {
     "fabric": "3.6.3",
     "fpsmeter": "0.3.1",
+    "konva": "7.1.3",
     "paper": "0.12.4",
     "parcel-bundler": "1.12.4",
     "pencil.js": "1.17.0",
