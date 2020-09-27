@@ -55,7 +55,11 @@ class KonvaEngine extends Engine {
 
     layer.draw();
 
-    const animation = new Konva.Animation(() => {
+    if (this.animation) {
+      this.animation.stop();
+    }
+
+    this.animation = new Konva.Animation(() => {
       rectangles.map((element) => {
         let x = element.rectangle.x() - element.speed;
         if (x + element.rectangle.width() < 0) x = this.width;
@@ -63,7 +67,7 @@ class KonvaEngine extends Engine {
       });
       this.meter.tick();
     }, layer);
-    animation.start();
+    this.animation.start();
   }
 }
 
