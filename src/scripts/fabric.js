@@ -39,9 +39,7 @@ class FabricEngine extends Engine {
     this.fabricCanvas.renderAll();
     this.meter.tick();
 
-    this.request = fabric.util.requestAnimFrame(() => {
-      this.requestAnimFrame();
-    });
+    this.request = requestAnimationFrame(() => this.requestAnimFrame());
   }
 
   render() {
@@ -70,9 +68,7 @@ class FabricEngine extends Engine {
     this.rects = rects;
     this.fabricCanvas.add(...rects.map(rect => rect.el));
 
-    this.request = fabric.util.requestAnimFrame(() => {
-      this.requestAnimFrame();
-    });
+    this.request = requestAnimationFrame(() => this.requestAnimFrame());
   };
 }
 

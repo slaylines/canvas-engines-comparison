@@ -24,10 +24,7 @@ class PaperEngine extends Engine {
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
-      const rect = new Paper.Rectangle(
-        new Paper.Point(x - size / 2, y - size / 2),
-        new Paper.Size(size, size)
-      );
+      const rect = new Paper.Rectangle(x - size / 2, y - size / 2, size, size);
 
       const path = new Paper.Path.Rectangle(rect);
       path.fillColor = 'white';
@@ -38,7 +35,9 @@ class PaperEngine extends Engine {
 
     Paper.view.draw();
 
-    Paper.view.onFrame = () => {
+    // Paper.view.onFrame = () => {
+    let onFrame = () => {
+      requestAnimationFrame(onFrame);
       const rectsToRemove = [];
 
       for (let i = 0; i < this.count.value; i++) {
@@ -55,6 +54,7 @@ class PaperEngine extends Engine {
 
       this.meter.tick();
     };
+    requestAnimationFrame(onFrame);
   };
 }
 
