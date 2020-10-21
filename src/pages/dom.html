@@ -1,23 +1,40 @@
 <html>
   <head>
-    <title>PixiJS — Canvas Engines Comparison</title>
+    <title>Fabric.js — Canvas Engines Comparison</title>
     <meta name="title" content="Canvas Engines Comparison">
     <meta name="description" content="Render multiple moving rectangles to compare five canvas engines.">
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../styles/canvas.css"/>
-    <script src="../scripts/pixi.js"></script>
+    <script src="../scripts/dom.js"></script>
+    <style>
+      .viewport {
+        margin-top: 1em;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        border: solid 1px;
+      }
+      .rectangle {
+        display: inline-block;
+        position: absolute;
+        border: solid 1px;
+      }
+    </style>
   </head>
   <body>
     <main>
       <h1>
-        <span>PixiJS</span>
+        <a href="./">PixiJS</a>
         <a href="./two.html">Two.js</a>
         <a href="./paper.html">Paper.js</a>
         <a href="./fabric.html">Fabric.js</a>
         <a href="./pencil.html">Pencil.js</a>
         <a href="./konva.html">Konva.js</a>
-        <a href="./dom.html">Dom</a>
+        <span>Dom</span>
       </h1>
 
       <div class="content">
@@ -27,6 +44,7 @@
           <a href="">2000</a>
           <a href="">5000</a>
         </div>
+        <div class="viewport"></canvas>
       </div>
       <a class="github" href="https://github.com/slaylines/canvas-engines-comparison">
         See on GitHub
