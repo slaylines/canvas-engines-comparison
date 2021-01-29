@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     isComponent: true,
   });
 
-  // let boxes.length = 0;
   const updateBoxes = function () {
 
     if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
@@ -30,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buildBoxes = function (boxesRequired) {
 
+    console.log('building boxes');
+
     let { width, height } = engine;
 
     [...boxes].forEach(box => box.kill());
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       boxes.push(scrawl.makeBlock({
         name: `b-${i}`,
-        start: [Math.random() * width, Math.random() * width],
+        start: [Math.random() * width, Math.random() * height],
         handle: ['center', 'center'],
         dimensions: [size, size],
         fillStyle: 'white',
