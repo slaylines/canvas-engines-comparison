@@ -5543,10 +5543,10 @@ saxes@^3.1.9:
   dependencies:
     xmlchars "^2.1.1"
 
-scrawl-canvas@^8.3.4:
-  version "8.3.4"
-  resolved "https://registry.yarnpkg.com/scrawl-canvas/-/scrawl-canvas-8.3.4.tgz#6622af70adc7bebcac1336fd4cbed6371de1eb8e"
-  integrity sha512-Bnyili7zLmhFhwBrox8LKalxKv9ME0bLJT/RBId3uay1A1p9cMNIABjP7kGV8CURKAFEuyKzwheMYz6/J3UeKg==
+scrawl-canvas@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/scrawl-canvas/-/scrawl-canvas-8.4.0.tgz#cc3f945ced5f2c65bc0f41ffb2c2bd1cfa544d70"
+  integrity sha512-Ny9C+TZ9999Qt6u+lHB6teKltYsPwVF44m0hEiKX7rFILoWDIJYzfPeYlMC12PdQLMvDJpvNRn5DaEq+12M+zw==
 
 semver@7.0.0:
   version "7.0.0"
