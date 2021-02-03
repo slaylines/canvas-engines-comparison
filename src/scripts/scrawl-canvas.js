@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // The "naive" approach
   // - create a thousand Block entitys, stamp them once each etc
   // ---------------------------------------------
-  /*
   const engine = new Engine();
   const canvas = scrawl.library.canvas.mycanvas;
   const boxes = [];
@@ -28,11 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
       let boxX = box.get('positionX'),
         boxWidth = box.get('width');
 
-      if (boxX < -(boxWidth / 2)) box.set({
+      if (boxX < -boxWidth) box.set({
         startX: boxX + eWidth + (boxWidth * 2),
       });
     });
   };
+
+  const mybox = scrawl.makeBlock({
+    name: `template-box`,
+    fillStyle: 'white',
+    strokeStyle: 'black',
+    lineWidth: 2,
+    method: 'drawThenFill',
+    purge: 'all',
+    noUserInteraction: true,
+    noPositionDependencies: true,
+    noFilters: true,
+    noPathUpdates: true,
+  });
 
   const buildBoxes = function (boxesRequired) {
 
@@ -43,25 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < boxesRequired; i++) {
 
-      let size = 10 + Math.random() * 40;
+      let size = 10 + Math.random() * 40,
+        halfSize = size / 2;
 
-      boxes.push(scrawl.makeBlock({
+      boxes.push(mybox.clone({
         name: `b-${i}`,
-        start: [Math.random() * width, Math.random() * height],
-        handle: ['center', 'center'],
+        start: [Math.random() * (width + size) - halfSize, Math.random() * (height + size) - halfSize,],
         dimensions: [size, size],
-        fillStyle: 'white',
-        strokeStyle: 'black',
-        lineWidth: 2,
-        method: 'drawThenFill',
-        purge: 'all',
         delta: {
           startX: -1 - Math.random(),
         },
-        purge: 'all',
-        noUserInteraction: true,
-        noPositionDependencies: true,
-        noFilters: true,
+        visibility: true,
+        sharedState: true,
+        noCanvasEngineUpdates: true,
       }));
     }
   };
@@ -71,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
       target: canvas,
       commence: updateBoxes,
       afterShow: () => engine.meter.tick(),
+      afterCreated: () => mybox.set({ visibility: false })
   });
-  */
 
 
-  // The "efficient" approach
+  // The "in-theory-more-efficient" approach
   // - create a single Block, stamp it a thousand times etc
   // ---------------------------------------------
   /*
@@ -104,8 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buildBoxes = function (boxesRequired) {
 
-    let { width, height } = engine,
-      size, x, y, dx;
+    let { width, height } = engine;
+    let size, x, y, dx;
 
     boxes.length = 0;
 
@@ -175,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // The "native" approach
   // - draw directly on the canvas, bypassing the Scrawl-canvas artefact system
   // ---------------------------------------------
+  /*
   const engine = new Engine();
   const canvas = scrawl.library.canvas.mycanvas;
   const boxes = [];
@@ -252,4 +259,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
   });
+  */
 });
