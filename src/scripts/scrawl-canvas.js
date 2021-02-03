@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // The "native" approach
+  // The "cheat-by-using-native-functionality" approach
   // - draw directly on the canvas, bypassing the Scrawl-canvas artefact system
   // ---------------------------------------------
   /*
