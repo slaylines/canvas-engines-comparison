@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateBoxes = function () {
 
-    if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
+    const val = engine.count.value
+
+    if (boxes.length !== val) buildBoxes(val);
 
     const eWidth = engine.width;
 
@@ -60,8 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       boxes.push(mybox.clone({
         name: `b-${i}`,
-        start: [Math.random() * (width + size) - halfSize, Math.random() * (height + size) - halfSize,],
-        dimensions: [size, size],
+        startX: Math.random() * (width + size) - halfSize,
+        startY: Math.random() * (height + size) - halfSize,
+        width: size, 
+        height: size,
         delta: {
           startX: -1 - Math.random(),
         },
@@ -77,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       target: canvas,
       commence: updateBoxes,
       afterShow: () => engine.meter.tick(),
-      afterCreated: () => mybox.set({ visibility: false })
+      afterCreated: () => mybox.set({ visibility: false }),
   });
 
 
@@ -93,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     width: engine.width,
     height: engine.height,
     isComponent: true,
-  }).render().catch((err) => console.log(err));
+  }).render();
 
   const mybox = scrawl.makeBlock({
     name: `template-box`,
@@ -159,19 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     name: 'demo-animation',
     fn: () => {
-      return new Promise((resolve, reject) => {
+      if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
 
-        if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
-
-        Promise.resolve(canvas.clear())
-        .then(() => Promise.resolve(drawBoxes()))
-        .then(() => canvas.show())
-        .then(() => {
-          engine.meter.tick();
-          resolve(true);
-        })
-        .catch(err => reject(err));
-      });
+      canvas.clear();
+      drawBoxes();
+      canvas.show();
+      engine.meter.tick();
     },
   });
   */
@@ -190,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     width: engine.width,
     height: engine.height,
     isComponent: true,
-  }).render().catch((err) => console.log(err));
+  }).render();
 
   const buildBoxes = function (boxesRequired) {
 
@@ -244,19 +241,118 @@ document.addEventListener("DOMContentLoaded", () => {
     
     fn: () => {
 
-      return new Promise((resolve, reject) => {
+      if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
 
-        if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
+      canvas.clear();
+      drawBoxes();
+      canvas.show();
+      engine.meter.tick();
+    },
+  });
+  */
 
-        Promise.resolve(canvas.clear())
-        .then(() => Promise.resolve(drawBoxes()))
-        .then(() => canvas.show())
-        .then(() => {
-          engine.meter.tick();
-          resolve(true);
-        })
-        .catch(err => reject(err));
-      });
+
+  // The "cheat-by-predrawing-assets" approach
+  // - create a Cell-based cache, draw boxes of various sizes in it, use it as an asset
+  // ---------------------------------------------
+  /*
+  const engine = new Engine();
+  const canvas = scrawl.library.canvas.mycanvas;
+  const boxes = [];
+
+  // Setup the display canvas
+  canvas.set({
+    width: engine.width,
+    height: engine.height,
+    isComponent: true,
+    backgroundColor: 'aliceblue',
+  }).render();
+
+  // Build and populate our cache Cell with pre-drawn boxes
+  canvas.buildCell({
+    name: 'cache',
+    width: 50 * 40,
+    height: 50,
+    cleared: false,
+    compiled: false,
+    shown: false,
+  });
+
+  const source = scrawl.library.cell.cache.element;
+  const sourceEngine = scrawl.library.cell.cache.engine;
+
+  sourceEngine.fillStyle = 'white';
+  sourceEngine.strokeStyle = 'black';
+  sourceEngine.lineWidth = 1;
+
+  for (let i = 0; i < 40; i++) {
+
+    let size = 10 + i,
+      delta = size / 2;
+
+    sourceEngine.setTransform(1, 0, 0, 1, (50 * i) + 25, 25);
+    sourceEngine.fillRect(-delta, -delta, size, size);
+    sourceEngine.strokeRect(-delta, -delta, size, size);
+  }
+
+  // On start, and UI, create the required number of box objects
+  // - these are plain JS objects holding data for our box drawing routine
+  const buildBoxes = function (boxesRequired) {
+
+    let { width, height } = engine,
+      size, x, y, dx;
+
+    boxes.length = 0;
+
+    for (let i = 0; i < boxesRequired; i++) {
+
+      size = 10 + Math.random() * 40;
+      x = Math.random() * width;
+      y = Math.random() * height;
+      dx = -1 - Math.random();
+
+      boxes.push([x, y, dx, Math.floor(size - 10)]);
+    }
+  };
+
+  // Use the box data to draw the appropriate box images onto the screen at the required positions
+  const drawBoxes = function () {
+
+    const engineWidth = engine.width,
+      ctx = canvas.base.engine;
+
+    let box, x, y, deltaX, boxpos, width;
+
+    return function () {
+
+      for (let i = 0, iz = boxes.length; i < iz; i++) {
+
+        box = boxes[i];
+        [x, y, deltaX, boxpos] = box;
+        width = boxpos + 10
+
+        ctx.drawImage(source, boxpos * 50, 0, 50, 50, x - 25, y - 25, 50, 50);
+
+        x += deltaX;
+        if (x < -width) x += engineWidth + (width * 2);
+        box[0] = x;
+      }
+    }
+  }();
+
+  // The animation loop object
+  scrawl.makeAnimation({
+
+    name: 'demo-animation',
+    
+    fn: () => {
+
+      if (boxes.length !== engine.count.value) buildBoxes(engine.count.value);
+
+      canvas.clear();
+      drawBoxes();
+      canvas.show();
+      engine.meter.tick();
     },
   });
   */
