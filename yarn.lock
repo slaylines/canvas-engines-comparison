@@ -6023,6 +6023,11 @@ text-direction@^1.1.0:
   resolved "https://registry.yarnpkg.com/text-direction/-/text-direction-1.3.0.tgz#881f723abebe0112900f3aa1683f5e066dfaea2b"
   integrity sha512-itH4ykFaVUXss3yfvrr/Hv+PzABhNjKHk7JqPzP/l5ACSjGZfO6J0JCcJQvBa0EAM03FMxqLeUC+S5kDZsIgyg==
 
+three@^0.126.1:
+  version "0.126.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.126.1.tgz#cf4e4e52060fd952f6f0d5440cbd422c66bc4be7"
+  integrity sha512-eOEXnZeE1FDV0XgL1u08auIP13jxdN9LQBAEmlErYzMxtIIfuGIAZbijOyookALUhqVzVOx0Tywj6n192VM+nQ==
+
 through2@^2.0.0, through2@~2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
