@@ -2,7 +2,6 @@ import Engine from './engine';
 import scrawl from 'scrawl-canvas';
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // The "naive" approach
   // - create a thousand Block entitys, stamp them once each etc
   // ---------------------------------------------
@@ -17,17 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const updateBoxes = function () {
-
-    const val = engine.count.value
+    const val = engine.count.value;
 
     if (boxes.length !== val) buildBoxes(val);
 
     const eWidth = engine.width;
 
     boxes.forEach(box => {
-
-      let boxX = box.get('positionX'),
-        boxWidth = box.get('width');
+      const boxX = box.get('positionX');
+      const boxWidth = box.get('width');
 
       if (boxX < -boxWidth) box.set({
         startX: boxX + eWidth + (boxWidth * 2),
@@ -49,16 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const buildBoxes = function (boxesRequired) {
-
-    let { width, height } = engine;
+    const { width, height } = engine;
 
     [...boxes].forEach(box => box.kill());
     boxes.length = 0;
 
     for (let i = 0; i < boxesRequired; i++) {
-
-      let size = 10 + Math.random() * 40,
-        halfSize = size / 2;
+      const size = 10 + Math.random() * 40;
+      const halfSize = size / 2;
 
       boxes.push(mybox.clone({
         name: `b-${i}`,
@@ -77,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   scrawl.makeRender({
-      name: 'demo-animation',
-      target: canvas,
-      commence: updateBoxes,
-      afterShow: () => engine.meter.tick(),
-      afterCreated: () => mybox.set({ visibility: false }),
+    name: 'demo-animation',
+    target: canvas,
+    commence: updateBoxes,
+    afterShow: () => engine.meter.tick(),
+    afterCreated: () => mybox.set({ visibility: false }),
   });
 
 

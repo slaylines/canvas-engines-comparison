@@ -5,11 +5,12 @@ class PencilEngine extends Engine {
   constructor () {
     super();
 
-    const canvas = document.getElementsByTagName('canvas')[0];
-    canvas.width = this.width;
-    canvas.height = this.height;
+    this.canvas = document.createElement('canvas');
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+    this.content.appendChild(this.canvas);
 
-    this.scene = new Pencil.Scene(canvas);
+    this.scene = new Pencil.Scene(this.canvas);
   }
 
   init () {

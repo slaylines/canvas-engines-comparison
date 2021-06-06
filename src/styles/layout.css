@@ -1,0 +1,90 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  font-size: 14px;
+  font-family: Montserrat, Helvetica, sans-serif;
+}
+
+* > * {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 1em;
+}
+
+body > * {
+  padding: 1em 2.5em;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #0269d4;
+  border-bottom: 1px solid rgba(2, 105, 212, 0.5);
+}
+a:hover {
+  border-bottom-color: rgba(2, 105, 212, 0.8);
+}
+
+header {
+  display: flex;
+  align-items: flex-start;
+}
+header menu {
+  margin: 0;
+  padding: 0;
+}
+header menu a {
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0 1em 0.5em 0;
+}
+header a.github {
+  position: relative;
+  margin-left: 2em;
+  padding: 6px 8px 6px 34px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: #333;
+}
+header a.github:before {
+  content: '';
+  position: absolute;
+  background-image: url('../assets/github.png');
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  left: 6px;
+}
+header a.github:hover {
+  border-color: #333;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 75%;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+footer a {
+  border-bottom: none;
+}
+footer img {
+  height: 1.2em;
+  margin-right: 1.4em;
+}
+footer span {
+  color: #999;
+  font-size: 0.85em;
+}
