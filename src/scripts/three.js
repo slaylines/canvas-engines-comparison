@@ -48,7 +48,7 @@ class ThreeEngine extends Engine {
       }
     }
 
-    requestAnimationFrame(this.animate.bind(this), this.renderer.domElement);
+    this.lastFrame = requestAnimationFrame(this.animate.bind(this), this.renderer.domElement);
     this.renderer.render(this.scene, this.camera);
     this.meter.tick();
   }
@@ -62,6 +62,11 @@ class ThreeEngine extends Engine {
       const size = 10 + Math.random() * 40;
       const speed = (1 + Math.random()) * 1;
       this.makeRect(x, y, size, speed);
+    }
+
+    if(this.lastFrame) {
+      // Avoid overlapping animation requests to keep FPS meter working
+      cancelAnimationFrame(this.lastFrame);  
     }
 
     this.animate();
