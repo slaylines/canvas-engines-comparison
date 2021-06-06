@@ -29,6 +29,11 @@ a {
 a:hover {
   border-bottom-color: rgba(2, 105, 212, 0.8);
 }
+a.disabled {
+  pointer-events: none;
+  color: #333;
+  border-bottom-color: transparent;
+}
 
 header {
   display: flex;
@@ -40,7 +45,7 @@ header menu {
   margin-right: 2em;
 }
 header menu a {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 400;
   margin: 0 1em 0.5em 0;
 }

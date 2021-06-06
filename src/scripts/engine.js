@@ -12,6 +12,8 @@ class Engine {
 
     this.initFpsmeter();
     this.initSettings();
+
+    this.initMenuLink();
   }
 
   initFpsmeter() {
@@ -50,6 +52,17 @@ class Engine {
 
         this.render();
       });
+    });
+  }
+
+  initMenuLink() {
+    const menuLinks = document.querySelectorAll('header > menu > a');
+    const { href } = window.location;
+
+    [...menuLinks].forEach(ml => {
+      if (ml.href === href) {
+        ml.classList.add('disabled');
+      }
     });
   }
 
