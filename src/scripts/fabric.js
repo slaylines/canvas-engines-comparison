@@ -13,9 +13,10 @@ window.cancelRequestAnimFrame = (() => {
 class FabricEngine extends Engine {
   constructor() {
     super();
-    this.canvas = document.getElementsByTagName('canvas')[0];
+    this.canvas = document.createElement('canvas');
     this.canvas.width = this.width;
     this.canvas.height = this.height;
+    this.content.appendChild(this.canvas);
   }
 
   init() {

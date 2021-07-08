@@ -9,6 +9,7 @@ class KonvaEngine extends Engine {
     super();
 
     const container = document.createElement("div");
+
     container.id = "konva";
     this.content.appendChild(container);
 

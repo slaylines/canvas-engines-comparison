@@ -2,8 +2,9 @@ import 'fpsmeter';
 
 class Engine {
   constructor() {
-    this.content = document.querySelector('.content');
-    this.countLinks = this.content.querySelectorAll('.selector > a');
+    this.content = document.querySelector('main');
+    this.meterContainer = this.content.querySelector('.meter');
+    this.countLinks = this.content.querySelectorAll('.count-selector > a');
 
     this.width = Math.min(this.content.clientWidth, 1000);
     this.height = this.content.clientHeight * 0.75;
@@ -11,17 +12,20 @@ class Engine {
 
     this.initFpsmeter();
     this.initSettings();
+
+    this.initMenuLink();
   }
 
   initFpsmeter() {
     this.meter = new window.FPSMeter(
-      this.content, {
+      this.meterContainer, {
         graph: 1,
         heat: 1,
         theme: 'light',
         history: 25,
-        top: '-10px',
-        left: `${this.width}px`,
+        top: 0,
+        bottom: 40,
+        left: `calc(${this.width}px + 2.5em)`,
         transform: 'translateX(-100%)',
       },
     );
@@ -29,6 +33,7 @@ class Engine {
 
   initSettings() {
     const count = JSON.parse(localStorage.getItem('count'));
+
     this.count = count || { index: 0, value: 1000 };
     localStorage.setItem('count', JSON.stringify(this.count));
 
@@ -47,6 +52,17 @@ class Engine {
 
         this.render();
       });
+    });
+  }
+
+  initMenuLink() {
+    const menuLinks = document.querySelectorAll('header > menu > a');
+    const { href } = window.location;
+
+    [...menuLinks].forEach(ml => {
+      if (ml.href === href) {
+        ml.classList.add('disabled');
+      }
     });
   }
 
