@@ -6,11 +6,13 @@ class ZREngine extends Engine {
   constructor() {
     super();
 
-    this.rects = [];
-    this.app = zrender.init(document.querySelector('#main'), {
+    const container = document.createElement("div");
+    this.content.appendChild(container);
+    this.app = zrender.init(container, {
       renderer: 'canvas',
       devicePixelRatio: 1
     });
+    this.rects = [];
     this.app.resize({ width: this.width, height: this.height });
     this.root = new zrender.Group();
     this.app.add(this.root);
