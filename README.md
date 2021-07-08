@@ -35,16 +35,17 @@ $ yarn start
 |-----------|-----|-----------|
 | Pixi.js   | 415 |           |
 | Mesh.js   | 236 | Sprite.js |
-| p5        | 824 |           |
+| P5.js     | 824 |           |
 | ZRender   | 298 |           |
-| Two       | 153 |           |
-| Konva     | 128 |           |
+| Two.js    | 153 |           |
+| Konva.js  | 128 |           |
 | CanvasKit | 163 |           |
-| Pencil    | 103 |           |
-| Paper     | 222 |           |
-| Fabric    | 336 |           |
-| Three     | 633 |           |
+| Pencil.js | 103 |           |
+| Paper.js  | 222 |           |
+| Fabric.js | 336 |           |
+| Three.js  | 633 |           |
 | Pts       | 124 |           |
+| Easeljs   | 134 |           |
 
 ## To go further
 
