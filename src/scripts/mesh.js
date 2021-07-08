@@ -1,14 +1,6 @@
 import Engine from './engine';
 import { Renderer, Figure2D, Mesh2D } from '@mesh.js/core';
 
-window.cancelRequestAnimFrame = (() => {
-	return window.cancelAnimationFrame ||
-		window.webkitCancelRequestAnimationFrame ||
-		window.mozCancelRequestAnimationFrame ||
-		window.oCancelRequestAnimationFrame ||
-		window.msCancelRequestAnimationFrame ||
-		clearTimeout;
-})();
 
 class MeshEngine extends Engine {
 	constructor() {
@@ -23,7 +15,7 @@ class MeshEngine extends Engine {
         this.renderer = new Renderer(this.canvas);
 	}
 
-	requestAnimFrame() {
+	animate() {
 		const rects = this.rects;
 		for (let i = 0; i < this.count.value; i++) {
 			const r = rects[i];
@@ -37,15 +29,13 @@ class MeshEngine extends Engine {
 		this.renderer.drawMeshes(meshes);
 		this.meter.tick();
 
-		this.request = window.requestAnimationFrame(() => {
-			this.requestAnimFrame()
-		});
+		this.request = window.requestAnimationFrame(() => this.animate());
 	}
 
 	render() {
 		// clear the canvas
 		this.renderer.clear();
-		window.cancelRequestAnimFrame(this.request);
+		this.cancelAnimationFrame(this.request);
 
 		// rectangle creation
 		const rects = new Array(this.count);
@@ -67,9 +57,7 @@ class MeshEngine extends Engine {
 		}
 		this.rects = rects;
 
-		this.request = window.requestAnimationFrame(() => {
-			this.requestAnimFrame()
-		});
+		this.request = window.requestAnimationFrame(() => this.animate());
 	};
 }
 

@@ -21,6 +21,7 @@ class KonvaEngine extends Engine {
   }
 
   render() {
+    this.cancelAnimationFrame(this.request)
     this.stage.destroyChildren();
     const layer = new Konva.Layer({
       listening: false,
@@ -56,13 +57,8 @@ class KonvaEngine extends Engine {
 
     layer.draw();
 
-    if (this.animation) {
-      this.animation.stop();
-    }
-
-    // this.animation = new Konva.Animation(() => {
     let draw = () => {
-      requestAnimationFrame(draw);
+      this.request = requestAnimationFrame(draw);
       rectangles.map((element) => {
         let x = element.rectangle.x() - element.speed;
         if (x + element.rectangle.width() < 0) x = this.width;
@@ -71,8 +67,8 @@ class KonvaEngine extends Engine {
       layer.batchDraw();
       this.meter.tick();
     };
-    // this.animation.start();
-    requestAnimationFrame(draw);
+
+    this.request = requestAnimationFrame(draw);
   }
 }
 

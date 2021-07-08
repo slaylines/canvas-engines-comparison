@@ -2,14 +2,6 @@ import Engine from './engine';
 import CanvasKitInit from 'canvaskit-wasm';
 import CanvasKitPkg from 'canvaskit-wasm/package.json';
 
-window.cancelRequestAnimFrame = (() => {
-	return window.cancelAnimationFrame ||
-		window.webkitCancelRequestAnimationFrame ||
-		window.mozCancelRequestAnimationFrame ||
-		window.oCancelRequestAnimationFrame ||
-		window.msCancelRequestAnimationFrame ||
-		clearTimeout;
-})();
 
 const wasmRemotePath = `https://unpkg.com/canvaskit-wasm@${CanvasKitPkg.version}/bin/`;
 
@@ -37,7 +29,7 @@ class CanvasKitEngine extends Engine {
         this.fillPaint.setColor(this.CanvasKit.parseColorString('#ffffff'));
 	}
 
-	requestAnimFrame() {
+	animate() {
 		const rects = this.rects;
         const canvas = this.surface.getCanvas();
 		for (let i = 0; i < this.count.value; i++) {
@@ -52,15 +44,13 @@ class CanvasKitEngine extends Engine {
 		this.surface.flush();
 		this.meter.tick();
 
-		this.request = window.requestAnimationFrame(() => {
-            this.requestAnimFrame()
-        });
+		this.request = window.requestAnimationFrame(() => this.animate());
 	}
 
 	render() {
 		// clear the canvas
 		this.surface.getCanvas().clear(this.CanvasKit.WHITE);
-		window.cancelRequestAnimFrame(this.request);
+		this.cancelAnimationFrame(this.request);
 
 		// rectangle creation
 		const rects = new Array(this.count);
@@ -73,9 +63,7 @@ class CanvasKitEngine extends Engine {
 		}
 		this.rects = rects;
 
-		this.request = window.requestAnimationFrame(() => {
-			this.requestAnimFrame()
-		});
+		this.request = window.requestAnimationFrame(() => this.animate());
 	};
 }
 

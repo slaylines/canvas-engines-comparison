@@ -35,7 +35,7 @@ class SVGjsEngine extends Engine {
   }
 
   render() {
-    window.cancelAnimationFrame(this.request)
+    this.cancelAnimationFrame(this.request)
     this.draw.clear()
     const rects = []
 

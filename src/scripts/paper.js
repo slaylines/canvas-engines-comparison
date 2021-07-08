@@ -16,6 +16,7 @@ class PaperEngine extends Engine {
   }
 
   render() {
+    this.cancelAnimationFrame(this.request);
     Paper.project.activeLayer.removeChildren();
     Paper.view.draw();
 
@@ -38,8 +39,8 @@ class PaperEngine extends Engine {
     Paper.view.draw();
 
     // Paper.view.onFrame = () => {
-    let onFrame = () => {
-      requestAnimationFrame(onFrame);
+    let animate = () => {
+      this.request = window.requestAnimationFrame(animate);
       const rectsToRemove = [];
 
       for (let i = 0; i < this.count.value; i++) {
@@ -56,7 +57,7 @@ class PaperEngine extends Engine {
 
       this.meter.tick();
     };
-    requestAnimationFrame(onFrame);
+		this.request = window.requestAnimationFrame(animate);
   };
 }
 

@@ -14,6 +14,13 @@ class Engine {
     this.initSettings();
 
     this.initMenuLink();
+
+    this.cancelAnimationFrame = (window.cancelAnimationFrame ||
+      window.webkitCancelRequestAnimationFrame ||
+      window.mozCancelRequestAnimationFrame ||
+      window.oCancelRequestAnimationFrame ||
+      window.msCancelRequestAnimationFrame)?.bind(window)
+      ||  clearTimeout;
   }
 
   initFpsmeter() {

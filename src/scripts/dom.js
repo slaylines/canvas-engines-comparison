@@ -1,14 +1,6 @@
 import Engine from './engine';
 import { fabric } from 'fabric';
 
-window.cancelRequestAnimFrame = (() => {
-  return window.cancelAnimationFrame ||
-         window.webkitCancelRequestAnimationFrame ||
-         window.mozCancelRequestAnimationFrame ||
-         window.oCancelRequestAnimationFrame ||
-         window.msCancelRequestAnimationFrame ||
-         clearTimeout;
-})();
 
 class FabricEngine extends Engine {
   constructor() {
@@ -23,7 +15,7 @@ class FabricEngine extends Engine {
   init() {
   }
 
-  requestAnimFrame() {
+  animate() {
     const rects = this.rects;
     for (let i = 0; i < this.count.value; i++) {
       const r = rects[i];
@@ -35,13 +27,13 @@ class FabricEngine extends Engine {
     }
     this.meter.tick();
 
-    this.request = requestAnimationFrame(() => this.requestAnimFrame());
+    this.request = requestAnimationFrame(() => this.animate());
   }
 
   render() {
     // clear the canvas
     this.canvas.innerHTML = "";
-    window.cancelRequestAnimFrame(this.request);
+    this.cancelAnimationFrame(this.request);
 
     // rectangle creation
     const rects = new Array(this.count);
@@ -62,7 +54,7 @@ class FabricEngine extends Engine {
     }
     this.rects = rects;
 
-    this.request = requestAnimationFrame(() => this.requestAnimFrame());
+    this.request = requestAnimationFrame(() => this.animate());
   };
 }
 
