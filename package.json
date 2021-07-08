@@ -14,6 +14,7 @@
   "dependencies": {
     "@createjs/easeljs": "^2.0.0-beta.4",
     "@mesh.js/core": "^1.1.22",
+    "@svgdotjs/svg.js": "^3.1.1",
     "canvaskit-wasm": "^0.28.1",
     "fabric": "4.2.0",
     "fpsmeter": "0.3.1",

@@ -24,6 +24,7 @@ https://benchmarks.slaylines.io/
 |~~[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)~~      |            |
 |[Pts](https://github.com/williamngan/pts)                  | 124        |
 |[EaselJS](https://github.com/CreateJS/EaselJS)             | 134        |
+|[SVG.js](https://github.com/svgdotjs/svg.js)               | 90         |
 
 
 ## Quick Start
