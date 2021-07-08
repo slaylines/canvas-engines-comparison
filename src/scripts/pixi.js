@@ -6,7 +6,7 @@ class PixiEngine extends Engine {
     super();
 
     // support Hi-DPI
-    PIXI.settings.RESOLUTION = window.devicePixelRatio
+    // PIXI.settings.RESOLUTION = window.devicePixelRatio
     this.rects = [];
     this.app = new PIXI.Application({
       width: this.width,
