@@ -4,22 +4,27 @@ https://benchmarks.slaylines.io/
 
 ## Description
 
-- [PixiJS](https://www.pixijs.com), 
-[Mesh.js](https://github.com/mesh-js/mesh.js), 
-[P5.js](https://p5js.org), 
-[ZRender](https://github.com/ecomfe/zrender), 
-[Two.js](https://two.js.org/), 
-[Konva.js](https://konvajs.org/), 
-[CanvasKit](https://skia.org/docs/user/modules/canvaskit/), 
-[Pencil.js](https://pencil.js.org/), 
-[Paper.js](http://paperjs.org/), 
-[Fabric.js](http://fabricjs.com/), 
-[Three JS](https://threejs.org/), 
-[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/), 
-[Pts](https://github.com/williamngan/pts), 
-[EaselJS](https://github.com/CreateJS/EaselJS)
+- Up to 8000 different rectangles moving on a canvas with various speed
+- Different choice of libraries used to render the scene : 
 
-- 1000, 2000 or 5000 different rectangles moving on canvas with different speed.
+
+|           | module kb  |
+|-----------|------------|
+|[PixiJS](https://www.pixijs.com)                           |415|
+|[Mesh.js](https://github.com/mesh-js/mesh.js)              |236|
+|[P5.js](https://p5js.org)                                  |824|
+|[ZRender](https://github.com/ecomfe/zrender)               |298|
+|[Two.js](https://two.js.org/)                              |153|
+|[Konva.js](https://konvajs.org/)                           |128|
+|[CanvasKit](https://skia.org/docs/user/modules/canvaskit/) |163|
+|[Pencil.js](https://pencil.js.org/)                        |103|
+|[Paper.js](http://paperjs.org/)                            |222|
+|[Fabric.js](http://fabricjs.com/)                          |336|
+|[Three JS](https://threejs.org/)                           |633|
+|~~[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)~~      |   |
+|[Pts](https://github.com/williamngan/pts)                  |124|
+|[EaselJS](https://github.com/CreateJS/EaselJS)             |134|
+
 
 ## Quick Start
 
@@ -29,24 +34,7 @@ $ yarn build
 $ yarn start
 ```
 
-## Libraries overview
 
-|           | kb  |  used by  |
-|-----------|-----|-----------|
-| Pixi.js   | 415 |           |
-| Mesh.js   | 236 | Sprite.js |
-| P5.js     | 824 |           |
-| ZRender   | 298 |           |
-| Two.js    | 153 |           |
-| Konva.js  | 128 |           |
-| CanvasKit | 163 |           |
-| Pencil.js | 103 |           |
-| Paper.js  | 222 |           |
-| Fabric.js | 336 |           |
-| Three.js  | 633 |           |
-| Pts       | 124 |           |
-| Easeljs   | 134 |           |
-
-## To go further
+## Misc
 
 A list of webgl libraries : https://gist.github.com/dmnsgn/76878ba6903cf15789b712464875cfdc
