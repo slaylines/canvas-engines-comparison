@@ -7,7 +7,7 @@ https://benchmarks.slaylines.io/
 - [PixiJS](https://www.pixijs.com), 
 [Mesh.js](https://github.com/mesh-js/mesh.js), 
 [P5.js](https://p5js.org), 
-[ZRender](https://github.com/ecomfe/zrender) 
+[ZRender](https://github.com/ecomfe/zrender), 
 [Two.js](https://two.js.org/), 
 [Konva.js](https://konvajs.org/), 
 [CanvasKit](https://skia.org/docs/user/modules/canvaskit/), 
@@ -16,8 +16,8 @@ https://benchmarks.slaylines.io/
 [Fabric.js](http://fabricjs.com/), 
 [Three JS](https://threejs.org/), 
 [Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/), 
-[Pts](https://github.com/williamngan/pts),
-[EaselJS]
+[Pts](https://github.com/williamngan/pts), 
+[EaselJS](https://github.com/CreateJS/EaselJS)
 
 - 1000, 2000 or 5000 different rectangles moving on canvas with different speed.
 

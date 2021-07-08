@@ -12,6 +12,7 @@
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"
   },
   "dependencies": {
+    "@createjs/easeljs": "^2.0.0-beta.4",
     "@mesh.js/core": "^1.1.22",
     "canvaskit-wasm": "^0.28.1",
     "fabric": "4.2.0",
