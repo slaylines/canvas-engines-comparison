@@ -19,11 +19,11 @@
     "paper": "0.12.4",
     "parcel-bundler": "1.12.4",
     "pencil.js": "1.17.0",
-    "zrender": "5.0.4",
     "pixi.js": "5.2.3",
     "scrawl-canvas": "8.5.0",
     "three": "0.126.1",
-    "two.js": "0.7.0-stable.1"
+    "two.js": "0.7.0-stable.1",
+    "zrender": "^5.1.1"
   },
   "resolutions": {
     "browserslist": "4.16.6"
