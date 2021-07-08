@@ -17,6 +17,7 @@ https://benchmarks.slaylines.io/
 [Three JS](https://threejs.org/), 
 [Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/), 
 [Pts](https://github.com/williamngan/pts),
+[EaselJS]
 
 - 1000, 2000 or 5000 different rectangles moving on canvas with different speed.
 
@@ -43,6 +44,7 @@ $ yarn start
 | Paper     | 222 |           |
 | Fabric    | 336 |           |
 | Three     | 633 |           |
+| Pts       | 124 |           |
 
 ## To go further
 
