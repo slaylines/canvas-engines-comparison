@@ -16,6 +16,8 @@ https://benchmarks.slaylines.io/
 [Fabric.js](http://fabricjs.com/), 
 [Three JS](https://threejs.org/), 
 [Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/), 
+[Pts](https://github.com/williamngan/pts),
+
 - 1000, 2000 or 5000 different rectangles moving on canvas with different speed.
 
 ## Quick Start
