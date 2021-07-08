@@ -13,18 +13,14 @@ window.cancelRequestAnimFrame = (() => {
 class FabricEngine extends Engine {
   constructor() {
     super();
-    this.canvas = document.createElement('canvas');
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
+    this.canvas = document.createElement('div');
+    this.canvas.className = 'canvas'
+    this.canvas.style.width = this.width;
+    this.canvas.style.height = this.height;
     this.content.appendChild(this.canvas);
   }
 
   init() {
-    fabric.Object.prototype.objectCaching = false;
-    fabric.Object.prototype.originX = 'center';
-    fabric.Object.prototype.originY = 'center';
-    this.fabricCanvas = new fabric.StaticCanvas(this.canvas, { enableRetinaScaling: false, renderOnAddRemove: false })
-    window.canvas = this.fabricCanvas;
   }
 
   requestAnimFrame() {
@@ -32,12 +28,11 @@ class FabricEngine extends Engine {
     for (let i = 0; i < this.count.value; i++) {
       const r = rects[i];
       r.x -= r.speed;
-      r.el.left = r.x;
+      r.el.style.left = r.x;
       if (r.x + r.size < 0) {
         r.x = this.width + r.size;
       }
     }
-    this.fabricCanvas.renderAll();
     this.meter.tick();
 
     this.request = requestAnimationFrame(() => this.requestAnimFrame());
@@ -45,7 +40,7 @@ class FabricEngine extends Engine {
 
   render() {
     // clear the canvas
-    this.fabricCanvas.clear();
+    this.canvas.innerHTML = "";
     window.cancelRequestAnimFrame(this.request);
 
     // rectangle creation
@@ -56,18 +51,16 @@ class FabricEngine extends Engine {
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
-      const fRect = new fabric.Rect({
-        width: size,
-        height: size,
-        fill: 'white',
-        stroke: 'black',
-        top: y,
-        left: x,
-      });
-      rects[i] = { x, y, size: size / 2, speed, el: fRect };
+      let rect = document.createElement("div");
+      rect.className = "rectangle";
+      rect.style.left = x + "px";
+      rect.style.top = y + "px";
+      rect.style.width = size + "px";
+      rect.style.height = size + "px";
+      this.canvas.appendChild(rect);
+      rects[i] = { x, y, size: size / 2, speed, el: rect };
     }
     this.rects = rects;
-    this.fabricCanvas.add(...rects.map(rect => rect.el));
 
     this.request = requestAnimationFrame(() => this.requestAnimFrame());
   };

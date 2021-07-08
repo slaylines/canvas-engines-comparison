@@ -60,15 +60,19 @@ class KonvaEngine extends Engine {
       this.animation.stop();
     }
 
-    this.animation = new Konva.Animation(() => {
+    // this.animation = new Konva.Animation(() => {
+    let draw = () => {
+      requestAnimationFrame(draw);
       rectangles.map((element) => {
         let x = element.rectangle.x() - element.speed;
         if (x + element.rectangle.width() < 0) x = this.width;
         element.rectangle.setX(x);
       });
+      layer.batchDraw();
       this.meter.tick();
-    }, layer);
-    this.animation.start();
+    };
+    // this.animation.start();
+    requestAnimationFrame(draw);
   }
 }
 
