@@ -1,0 +1,27 @@
+include /partials/header
+include /partials/footer
+include /partials/count-selector
+
+html
+  head
+    block title
+      title Canvas Engines Comparison
+
+    meta(name="title" content="Canvas Engines Comparison")
+    meta(name="description" content="Render multiple moving rectangles to compare six canvas engines.")
+
+    link(rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon")
+    link(rel="icon" href="../assets/favicon.ico" type="image/x-icon")
+
+    link(rel="stylesheet" href="../styles/index.css")
+
+    block scripts
+
+  body
+    +header()
+
+    main
+      +count-selector()
+      .meter
+
+    +footer()

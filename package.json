@@ -1,13 +1,13 @@
 {
   "name": "canvas-engines-comparison",
   "version": "1.0.0",
-  "main": "src/pages/index.html",
+  "main": "src/pages/pixi.pug",
   "repository": "https://github.com/slaylines/canvas-engines-comparison.git",
   "author": "slay_lines",
   "license": "MIT",
   "scripts": {
-    "start": "parcel serve src/pages/index.html --open",
-    "build": "parcel build src/pages/index.html",
+    "start": "parcel serve src/pages/pixi.pug --open",
+    "build": "parcel build src/pages/pixi.pug",
     "deploy": "yarn build && yarn copy",
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"
   },
@@ -16,9 +16,18 @@
     "fpsmeter": "0.3.1",
     "konva": "7.1.3",
     "paper": "0.12.11",
+    "p5": "1.3.1",
     "parcel-bundler": "1.12.4",
     "pencil.js": "1.17.0",
     "pixi.js": "5.2.3",
+    "scrawl-canvas": "8.5.0",
+    "three": "0.126.1",
     "two.js": "0.7.0-stable.1"
+  },
+  "resolutions": {
+    "browserslist": "4.16.6"
+  },
+  "devDependencies": {
+    "pug": "3.0.2"
   }
 }
