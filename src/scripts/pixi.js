@@ -5,6 +5,8 @@ class PixiEngine extends Engine {
   constructor() {
     super();
 
+    // support Hi-DPI
+    // PIXI.settings.RESOLUTION = window.devicePixelRatio
     this.rects = [];
     this.app = new PIXI.Application({
       width: this.width,
@@ -13,6 +15,8 @@ class PixiEngine extends Engine {
       antialias: true,
     });
     this.content.appendChild(this.app.view);
+    this.app.view.style.width = this.width + "px";
+    this.app.view.style.height = this.height + "px";
   }
 
   onTick() {
@@ -39,7 +43,7 @@ class PixiEngine extends Engine {
     for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
-      const size = 10 + Math.random() * 40;
+      const size = (10 + Math.random() * 40);
       const speed = 1 + Math.random();
 
       const rect = new PIXI.Graphics();

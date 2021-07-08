@@ -27,7 +27,21 @@
 /*
 TODO: fix Konva to not overwrite canvas styles
 */
-svg, canvas {
+svg, canvas, .canvas {
   margin-top: 1em !important;
   border: 1px solid #999 !important;
+}
+
+/* dom canvas */
+.canvas {
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+}
+
+div.rectangle {
+  display: inline-block;
+  position: absolute;
+  background:white;
+  border: solid 1px;
 }
