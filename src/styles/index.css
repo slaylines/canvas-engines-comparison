@@ -38,3 +38,10 @@ svg, canvas, .canvas {
   position: relative;
   display: inline-flex;
 }
+
+div.rectangle {
+  display: inline-block;
+  position: absolute;
+  background:white;
+  border: solid 1px;
+}

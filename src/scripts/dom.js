@@ -53,13 +53,10 @@ class FabricEngine extends Engine {
 
       let rect = document.createElement("div");
       rect.className = "rectangle";
-      rect.style.position = "absolute";
-      rect.style.border = "1px solid black";
       rect.style.left = x + "px";
       rect.style.top = y + "px";
       rect.style.width = size + "px";
       rect.style.height = size + "px";
-      rect.style.backgroundColor = "white";
       this.canvas.appendChild(rect);
       rects[i] = { x, y, size: size / 2, speed, el: rect };
     }
