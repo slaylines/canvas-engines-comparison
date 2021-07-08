@@ -6,7 +6,7 @@
   "author": "slay_lines",
   "license": "MIT",
   "scripts": {
-    "start": "parcel serve src/pages/pixi.pug",
+    "start": "parcel serve src/pages/pixi.pug --open",
     "build": "parcel build src/pages/pixi.pug",
     "deploy": "yarn build && yarn copy",
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"

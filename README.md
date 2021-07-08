@@ -8,22 +8,22 @@ https://benchmarks.slaylines.io/
 - Different choice of libraries used to render the scene : 
 
 
-|           | module kb  |
-|-----------|------------|
-|[PixiJS](https://www.pixijs.com)                           |415|
-|[Mesh.js](https://github.com/mesh-js/mesh.js)              |236|
-|[P5.js](https://p5js.org)                                  |824|
-|[ZRender](https://github.com/ecomfe/zrender)               |298|
-|[Two.js](https://two.js.org/)                              |153|
-|[Konva.js](https://konvajs.org/)                           |128|
-|[CanvasKit](https://skia.org/docs/user/modules/canvaskit/) |163|
-|[Pencil.js](https://pencil.js.org/)                        |103|
-|[Paper.js](http://paperjs.org/)                            |222|
-|[Fabric.js](http://fabricjs.com/)                          |336|
-|[Three JS](https://threejs.org/)                           |633|
-|~~[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)~~      |   |
-|[Pts](https://github.com/williamngan/pts)                  |124|
-|[EaselJS](https://github.com/CreateJS/EaselJS)             |134|
+|                                                           | module kb  |
+|-----------------------------------------------------------|------------|
+|[PixiJS](https://www.pixijs.com)                           | 415        |
+|[Mesh.js](https://github.com/mesh-js/mesh.js)              | 236        |
+|[P5.js](https://p5js.org)                                  | 824        |
+|[ZRender](https://github.com/ecomfe/zrender)               | 298        |
+|[Two.js](https://two.js.org/)                              | 153        |
+|[Konva.js](https://konvajs.org/)                           | 128        |
+|[CanvasKit](https://skia.org/docs/user/modules/canvaskit/) | 163        |
+|[Pencil.js](https://pencil.js.org/)                        | 103        |
+|[Paper.js](http://paperjs.org/)                            | 222        |
+|[Fabric.js](http://fabricjs.com/)                          | 336        |
+|[Three JS](https://threejs.org/)                           | 633        |
+|~~[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)~~      |            |
+|[Pts](https://github.com/williamngan/pts)                  | 124        |
+|[EaselJS](https://github.com/CreateJS/EaselJS)             | 134        |
 
 
 ## Quick Start
