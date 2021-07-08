@@ -25,3 +25,23 @@ $ yarn install
 $ yarn build
 $ yarn start
 ```
+
+## Libraries overview
+
+|           | kb  |  used by  |
+|-----------|-----|-----------|
+| Pixi.js   | 415 |           |
+| Mesh.js   | 236 | Sprite.js |
+| p5        | 824 |           |
+| ZRender   | 298 |           |
+| Two       | 153 |           |
+| Konva     | 128 |           |
+| CanvasKit | 163 |           |
+| Pencil    | 103 |           |
+| Paper     | 222 |           |
+| Fabric    | 336 |           |
+| Three     | 633 |           |
+
+## To go further
+
+A list of webgl libraries : https://gist.github.com/dmnsgn/76878ba6903cf15789b712464875cfdc
