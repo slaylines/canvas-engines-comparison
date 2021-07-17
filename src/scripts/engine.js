@@ -8,12 +8,19 @@ class Engine {
 
     this.width = Math.min(this.content.clientWidth, 1000);
     this.height = this.content.clientHeight * 0.75;
-    this.count = 0;
+    this.count;
 
     this.initFpsmeter();
     this.initSettings();
 
     this.initMenuLink();
+
+    this.cancelAnimationFrame = (window.cancelAnimationFrame ||
+      window.webkitCancelRequestAnimationFrame ||
+      window.mozCancelRequestAnimationFrame ||
+      window.oCancelRequestAnimationFrame ||
+      window.msCancelRequestAnimationFrame)?.bind(window)
+      || clearTimeout;
   }
 
   initFpsmeter() {
@@ -34,7 +41,7 @@ class Engine {
   initSettings() {
     const count = JSON.parse(localStorage.getItem('count'));
 
-    this.count = count || { index: 0, value: 1000 };
+    this.count = count || { index: 1, value: 1000 };
     localStorage.setItem('count', JSON.stringify(this.count));
 
     this.countLinks.forEach((link, index) => {
