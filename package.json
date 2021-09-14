@@ -25,7 +25,7 @@
     "pencil.js": "1.17.0",
     "pixi.js": "5.2.3",
     "pts": "^0.10.6",
-    "scrawl-canvas": "8.5.0",
+    "scrawl-canvas": "^8.5.5",
     "three": "0.126.1",
     "two.js": "0.7.0-stable.1",
     "zrender": "^5.1.1"

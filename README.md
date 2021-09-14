@@ -21,7 +21,7 @@ https://benchmarks.slaylines.io/
 |[Paper.js](http://paperjs.org/)                            | 222        |
 |[Fabric.js](http://fabricjs.com/)                          | 336        |
 |[Three JS](https://threejs.org/)                           | 633        |
-|~~[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)~~      |            |
+|[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)          | 114        |
 |[Pts](https://github.com/williamngan/pts)                  | 124        |
 |[EaselJS](https://github.com/CreateJS/EaselJS)             | 134        |
 |[SVG.js](https://github.com/svgdotjs/svg.js)               | 90         |
