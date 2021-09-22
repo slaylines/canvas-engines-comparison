@@ -33,7 +33,7 @@ class P5Engine extends Engine {
           rect.x -= rect.speed;
           p.rect(rect.x, rect.y, rect.size, rect.size);
 
-          if (rect.x + rect.size / 2 < 0) rectsToRemove.push(i);
+          if (rect.x + rect.size < 0) rectsToRemove.push(i);
         }
 
         rectsToRemove.forEach((i) => {

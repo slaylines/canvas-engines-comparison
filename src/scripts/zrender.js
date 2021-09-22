@@ -25,7 +25,7 @@ class ZREngine extends Engine {
       const rect = this.rects[i];
       rect.x -= rect.speed;
       rect.el.attr('x', rect.x);
-      if (rect.x + rect.size / 2 < 0) rectsToRemove.push(i);
+      if (rect.x + rect.size < 0) rectsToRemove.push(i);
     }
 
     rectsToRemove.forEach(i => {
