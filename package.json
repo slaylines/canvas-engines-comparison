@@ -22,7 +22,7 @@
     "p5": "^1.4.0",
     "paper": "^0.12.15",
     "parcel-bundler": "1.12.5",
-    "pencil.js": "^2.3.1",
+    "pencil.js": "^1.9.0",
     "pixi.js": "6.1.3",
     "pts": "^0.10.6",
     "scrawl-canvas": "^8.6.2",
@@ -31,9 +31,10 @@
     "zrender": "^5.2.1"
   },
   "resolutions": {
-    "browserslist": "4.16.6"
+    "browserslist": "^4.17.0"
   },
   "devDependencies": {
+    "prettier": "2.4.1",
     "pug": "3.0.2"
   },
   "browserslist": [

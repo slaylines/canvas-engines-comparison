@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.cache
+.DS_Store
+
+*.pug
