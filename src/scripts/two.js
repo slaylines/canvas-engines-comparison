@@ -1,5 +1,5 @@
-import Engine from './engine';
-import Two from 'two.js';
+import Engine from "./engine";
+import Two from "two.js";
 
 class TwoEngine extends Engine {
   constructor() {
@@ -8,14 +8,14 @@ class TwoEngine extends Engine {
     this.two = new Two({
       width: this.width,
       height: this.height,
-      type: Two.Types['webgl'],
+      type: Two.Types["webgl"],
       autostart: true,
     }).appendTo(this.content);
   }
 
   render() {
     if (this.two) {
-      this.two.unbind('update');
+      this.two.unbind("update");
       this.two.clear();
     }
 
@@ -27,12 +27,15 @@ class TwoEngine extends Engine {
       const speed = 1 + Math.random();
 
       rects[i] = {
-        x, y, size, speed,
+        x,
+        y,
+        size,
+        speed,
         el: this.two.makeRectangle(x, y, size, size),
       };
     }
 
-    this.two.bind('update', () => {
+    this.two.bind("update", () => {
       const rectsToRemove = [];
 
       for (let i = 0; i < this.count.value; i++) {
@@ -43,16 +46,16 @@ class TwoEngine extends Engine {
         if (r.x + r.size / 2 < 0) rectsToRemove.push(i);
       }
 
-      rectsToRemove.forEach(i => {
+      rectsToRemove.forEach((i) => {
         rects[i].x = this.two.width + rects[i].size / 2;
       });
 
       this.meter.tick();
     });
-  };
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new TwoEngine();
   engine.render();
 });

@@ -11,8 +11,8 @@ class ThreeEngine extends Engine {
       1000
     );
     this.camera.position.set(this.width / 2, this.height / 2, 500);
-    this.renderer = new THREE.WebGLRenderer({ antialias: true , depth: false});
-    this.renderer.setPixelRatio( window.devicePixelRatio );
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, depth: false });
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(this.width, this.height);
     this.renderer.sortObjects = false; // Allows squares to be drawn on top of each other
     this.content.appendChild(this.renderer.domElement);
@@ -21,26 +21,34 @@ class ThreeEngine extends Engine {
   }
 
   makeRect(x, y, size, speed) {
-    const geometry = new THREE.PlaneGeometry( size, size );
-    const material = new THREE.MeshBasicMaterial( {color: 0xffffff, side: THREE.FrontSide, depthTest: false} );
-    const plane = new THREE.Mesh( geometry, material );
+    const geometry = new THREE.PlaneGeometry(size, size);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      side: THREE.FrontSide,
+      depthTest: false,
+    });
+    const plane = new THREE.Mesh(geometry, material);
     plane.position.set(x, y, 0);
     plane.userData["speed"] = speed;
-    this.scene.add( plane );
+    this.scene.add(plane);
 
     // Make the borders of the planes
-    const edges = new THREE.EdgesGeometry( geometry );
-    const line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0x000000 } ) );
+    const edges = new THREE.EdgesGeometry(geometry);
+    const line = new THREE.LineSegments(
+      edges,
+      new THREE.LineBasicMaterial({ color: 0x000000 })
+    );
     line.position.set(x, y, 0);
     line.userData["speed"] = speed;
-    this.scene.add( line );
+    this.scene.add(line);
   }
 
   animate() {
     let size;
-    for(let child of this.scene.children) {
+    for (let child of this.scene.children) {
       child.position.x -= child.userData.speed;
-      if(child.type === "Mesh") { // borders come directly after planes in the scene
+      if (child.type === "Mesh") {
+        // borders come directly after planes in the scene
         size = child.geometry.parameters.width;
       }
       if (child.position.x + size * 2 < 0) {
@@ -48,7 +56,10 @@ class ThreeEngine extends Engine {
       }
     }
 
-    this.lastFrame = requestAnimationFrame(this.animate.bind(this), this.renderer.domElement);
+    this.lastFrame = requestAnimationFrame(
+      this.animate.bind(this),
+      this.renderer.domElement
+    );
     this.renderer.render(this.scene, this.camera);
     this.meter.tick();
   }
@@ -64,9 +75,9 @@ class ThreeEngine extends Engine {
       this.makeRect(x, y, size, speed);
     }
 
-    if(this.lastFrame) {
+    if (this.lastFrame) {
       // Avoid overlapping animation requests to keep FPS meter working
-      cancelAnimationFrame(this.lastFrame);  
+      cancelAnimationFrame(this.lastFrame);
     }
 
     this.animate();

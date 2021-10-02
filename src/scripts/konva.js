@@ -21,7 +21,7 @@ class KonvaEngine extends Engine {
   }
 
   render() {
-    this.cancelAnimationFrame(this.request)
+    this.cancelAnimationFrame(this.request);
     this.stage.destroyChildren();
     const layer = new Konva.Layer({
       listening: false,

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -59,9 +60,9 @@ header a.github {
   color: #333;
 }
 header a.github:before {
-  content: '';
+  content: "";
   position: absolute;
-  background-image: url('../assets/github.png');
+  background-image: url("../assets/github.png");
   background-size: contain;
   width: 20px;
   height: 20px;

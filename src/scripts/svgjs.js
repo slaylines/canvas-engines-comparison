@@ -1,20 +1,16 @@
-import Engine from './engine';
-import { SVG } from '@svgdotjs/svg.js';
-
-
+import Engine from "./engine";
+import { SVG } from "@svgdotjs/svg.js";
 
 class SVGjsEngine extends Engine {
   constructor() {
     super();
 
-    this.draw = SVG().addTo(this.content)
-    this.draw.attr('height', this.height)
-    this.draw.attr('width', this.width)
+    this.draw = SVG().addTo(this.content);
+    this.draw.attr("height", this.height);
+    this.draw.attr("width", this.width);
   }
 
-  init() {
-
-  }
+  init() {}
 
   animate() {
     // fps meter
@@ -28,16 +24,16 @@ class SVGjsEngine extends Engine {
       }
       rect.x -= rect.speed;
 
-      rect.el.move(rect.x, rect.y)
+      rect.el.move(rect.x, rect.y);
     }
 
     this.request = requestAnimationFrame(this.animate.bind(this));
   }
 
   render() {
-    this.cancelAnimationFrame(this.request)
-    this.draw.clear()
-    const rects = []
+    this.cancelAnimationFrame(this.request);
+    this.draw.clear();
+    const rects = [];
 
     for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
@@ -45,18 +41,19 @@ class SVGjsEngine extends Engine {
       const size = 10 + Math.random() * 40;
       const speed = 1 + Math.random();
 
-      let rect = this.draw.rect(size, size).attr({ fill: '#fff', stroke: '#000' }).move(x, y)
+      let rect = this.draw
+        .rect(size, size)
+        .attr({ fill: "#fff", stroke: "#000" })
+        .move(x, y);
       rects.push({ x, y, size, speed, el: rect });
     }
     this.rects = rects;
 
     this.request = requestAnimationFrame(this.animate.bind(this));
   }
-
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new SVGjsEngine();
   engine.init();
   engine.render();

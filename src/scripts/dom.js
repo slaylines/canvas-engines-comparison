@@ -1,19 +1,17 @@
-import Engine from './engine';
-import { fabric } from 'fabric';
-
+import Engine from "./engine";
+import { fabric } from "fabric";
 
 class FabricEngine extends Engine {
   constructor() {
     super();
-    this.canvas = document.createElement('div');
-    this.canvas.className = 'canvas'
+    this.canvas = document.createElement("div");
+    this.canvas.className = "canvas";
     this.canvas.style.width = this.width;
     this.canvas.style.height = this.height;
     this.content.appendChild(this.canvas);
   }
 
-  init() {
-  }
+  init() {}
 
   animate() {
     const rects = this.rects;
@@ -55,10 +53,10 @@ class FabricEngine extends Engine {
     this.rects = rects;
 
     this.request = requestAnimationFrame(() => this.animate());
-  };
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new FabricEngine();
   engine.init();
   engine.render();

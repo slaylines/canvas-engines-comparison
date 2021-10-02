@@ -1,31 +1,34 @@
-import Engine from './engine';
-import { CanvasSpace, Pt, Group, Line, quickStart, Rectangle, quickstart } from 'pts';
-
-
+import Engine from "./engine";
+import {
+  CanvasSpace,
+  Pt,
+  Group,
+  Line,
+  quickStart,
+  Rectangle,
+  quickstart,
+} from "pts";
 
 class PtsEngine extends Engine {
   constructor() {
     super();
 
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.createElement("canvas");
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.content.appendChild(this.canvas);
-
-
   }
 
   init() {
     this.space = new CanvasSpace(this.canvas);
     this.space.setup({ bgcolor: "#fff" });
     this.form = this.space.getForm();
-    this.space.add(this.animate.bind(this))
+    this.space.add(this.animate.bind(this));
   }
 
   animate(time, ftime) {
     // fps meter
     this.meter.tick();
-
 
     for (let i = 0; i < this.rects.length; i++) {
       const rect = this.rects[i];
@@ -35,14 +38,14 @@ class PtsEngine extends Engine {
       }
 
       rect.x -= rect.speed;
-      rect.el.moveTo([rect.x, rect.y])
+      rect.el.moveTo([rect.x, rect.y]);
       this.form.fillOnly("#fff").polygon(rect.el);
       this.form.strokeOnly("#000").polygon(rect.el);
     }
   }
 
   render() {
-    const rects = []
+    const rects = [];
     for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
@@ -55,13 +58,11 @@ class PtsEngine extends Engine {
     }
     this.rects = rects;
 
-
     this.space.play().bindMouse();
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new PtsEngine();
   engine.init();
   engine.render();

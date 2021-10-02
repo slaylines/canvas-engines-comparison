@@ -1,21 +1,20 @@
-import Engine from './engine';
+import Engine from "./engine";
 import { Stage, Shape, Ticker } from "@createjs/easeljs";
-
 
 class EaselJSEngine extends Engine {
   constructor() {
     super();
 
-    this.canvas = document.createElement('canvas');
-    this.canvas.id = 'canvas';
+    this.canvas = document.createElement("canvas");
+    this.canvas.id = "canvas";
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.content.appendChild(this.canvas);
   }
 
   init() {
-    this.stage = new Stage('canvas');
-    Ticker.on('tick', this.animate.bind(this));
+    this.stage = new Stage("canvas");
+    Ticker.on("tick", this.animate.bind(this));
     Ticker.framerate = 60;
     // Ticker.timingMode = Ticker.RAF;
   }
@@ -37,8 +36,8 @@ class EaselJSEngine extends Engine {
   }
 
   render() {
-    this.stage.removeAllChildren()
-    const rects = []
+    this.stage.removeAllChildren();
+    const rects = [];
     for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
@@ -46,7 +45,10 @@ class EaselJSEngine extends Engine {
       const speed = 1 + Math.random();
 
       var rect = new Shape();
-      rect.graphics.beginFill("#fff").beginStroke("#000").drawRect(0, 0, size, size);
+      rect.graphics
+        .beginFill("#fff")
+        .beginStroke("#000")
+        .drawRect(0, 0, size, size);
       rect.x = x;
       rect.y = y;
       this.stage.addChild(rect);
@@ -59,8 +61,7 @@ class EaselJSEngine extends Engine {
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new EaselJSEngine();
   engine.init();
   engine.render();

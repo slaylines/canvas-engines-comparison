@@ -1,10 +1,10 @@
-import Engine from './engine';
-import { fabric } from 'fabric';
+import Engine from "./engine";
+import { fabric } from "fabric";
 
 class FabricEngine extends Engine {
   constructor() {
     super();
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.createElement("canvas");
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.content.appendChild(this.canvas);
@@ -12,9 +12,12 @@ class FabricEngine extends Engine {
 
   init() {
     fabric.Object.prototype.objectCaching = false;
-    fabric.Object.prototype.originX = 'center';
-    fabric.Object.prototype.originY = 'center';
-    this.fabricCanvas = new fabric.StaticCanvas(this.canvas, { enableRetinaScaling: false, renderOnAddRemove: false })
+    fabric.Object.prototype.originX = "center";
+    fabric.Object.prototype.originY = "center";
+    this.fabricCanvas = new fabric.StaticCanvas(this.canvas, {
+      enableRetinaScaling: false,
+      renderOnAddRemove: false,
+    });
     window.canvas = this.fabricCanvas;
   }
 
@@ -50,21 +53,21 @@ class FabricEngine extends Engine {
       const fRect = new fabric.Rect({
         width: size,
         height: size,
-        fill: 'white',
-        stroke: 'black',
+        fill: "white",
+        stroke: "black",
         top: y,
         left: x,
       });
       rects[i] = { x, y, size: size / 2, speed, el: fRect };
     }
     this.rects = rects;
-    this.fabricCanvas.add(...rects.map(rect => rect.el));
+    this.fabricCanvas.add(...rects.map((rect) => rect.el));
 
     this.request = requestAnimationFrame(() => this.animate());
-  };
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new FabricEngine();
   engine.init();
   engine.render();

@@ -1,6 +1,6 @@
-import Engine from './engine';
-import * as zrender from 'zrender';
-import 'zrender/lib/canvas/canvas';
+import Engine from "./engine";
+import * as zrender from "zrender";
+import "zrender/lib/canvas/canvas";
 
 class ZREngine extends Engine {
   constructor() {
@@ -9,8 +9,8 @@ class ZREngine extends Engine {
     const container = document.createElement("div");
     this.content.appendChild(container);
     this.app = zrender.init(container, {
-      renderer: 'canvas',
-      devicePixelRatio: 1
+      renderer: "canvas",
+      devicePixelRatio: 1,
     });
     this.rects = [];
     this.app.resize({ width: this.width, height: this.height });
@@ -24,11 +24,11 @@ class ZREngine extends Engine {
     for (let i = 0; i < this.count.value; i++) {
       const rect = this.rects[i];
       rect.x -= rect.speed;
-      rect.el.attr('x', rect.x);
+      rect.el.attr("x", rect.x);
       if (rect.x + rect.size < 0) rectsToRemove.push(i);
     }
 
-    rectsToRemove.forEach(i => {
+    rectsToRemove.forEach((i) => {
       this.rects[i].x = this.width + this.rects[i].size / 2;
     });
 
@@ -36,7 +36,7 @@ class ZREngine extends Engine {
   }
 
   render() {
-    this.app.animation.off('frame', this.onTick, this);
+    this.app.animation.off("frame", this.onTick, this);
     this.root.removeAll();
     this.rects = [];
     for (let i = 0; i < this.count.value; i++) {
@@ -51,21 +51,21 @@ class ZREngine extends Engine {
           height: size,
         },
         style: {
-          fill: 'white',
-          stroke: 'black',
+          fill: "white",
+          stroke: "black",
         },
         x,
-        y
+        y,
       });
       this.root.add(rect);
       this.rects[i] = { x, y, size, speed, el: rect };
     }
 
-    this.app.animation.on('frame', this.onTick, this);
-  };
+    this.app.animation.on("frame", this.onTick, this);
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new ZREngine();
   engine.render();
 });

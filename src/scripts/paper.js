@@ -1,11 +1,11 @@
-import Engine from './engine';
-import Paper from 'paper/dist/paper-core';
+import Engine from "./engine";
+import Paper from "paper/dist/paper-core";
 
 class PaperEngine extends Engine {
   constructor() {
     super();
 
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.createElement("canvas");
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.content.appendChild(this.canvas);
@@ -30,8 +30,8 @@ class PaperEngine extends Engine {
       const rect = new Paper.Rectangle(x - size / 2, y - size / 2, size, size);
 
       const path = new Paper.Path.Rectangle(rect);
-      path.fillColor = 'white';
-      path.strokeColor = 'black';
+      path.fillColor = "white";
+      path.strokeColor = "black";
 
       rects[i] = { x, y, size, speed, el: path };
     }
@@ -51,17 +51,17 @@ class PaperEngine extends Engine {
         if (r.x + r.size / 2 < 0) rectsToRemove.push(i);
       }
 
-      rectsToRemove.forEach(i => {
+      rectsToRemove.forEach((i) => {
         rects[i].x = this.width + rects[i].size / 2;
       });
 
       this.meter.tick();
     };
-		this.request = window.requestAnimationFrame(animate);
-  };
+    this.request = window.requestAnimationFrame(animate);
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new PaperEngine();
 
   engine.init();
