@@ -5,9 +5,7 @@ class PencilEngine extends Engine {
   constructor () {
     super();
 
-    this.canvas = document.createElement('canvas');
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
+    this.canvas = Pencil.OffScreenCanvas.getDrawingContext(this.width, this.height).canvas;
     this.content.appendChild(this.canvas);
 
     this.scene = new Pencil.Scene(this.canvas);
@@ -25,11 +23,7 @@ class PencilEngine extends Engine {
     this.scene.children.forEach(r => {
       r.position.x -= r.options.speed;
 
-      if (r.position.x + r.size < 0) rectsToRemove.push(r);
-    });
-
-    rectsToRemove.forEach(r => {
-      r.position.x = this.scene.width + r.size;
+      if (r.position.x + r.size < 0) r.position.x = this.scene.width + r.size;
     });
 
     this.meter.tick();

@@ -10,21 +10,21 @@ https://benchmarks.slaylines.io/
 
 |                                                           | module kb  |
 |-----------------------------------------------------------|------------|
-|[PixiJS](https://www.pixijs.com)                           | 415        |
-|[Mesh.js](https://github.com/mesh-js/mesh.js)              | 236        |
-|[P5.js](https://p5js.org)                                  | 824        |
-|[ZRender](https://github.com/ecomfe/zrender)               | 298        |
-|[Two.js](https://two.js.org/)                              | 153        |
-|[Konva.js](https://konvajs.org/)                           | 128        |
-|[CanvasKit](https://skia.org/docs/user/modules/canvaskit/) | 163        |
-|[Pencil.js](https://pencil.js.org/)                        | 103        |
-|[Paper.js](http://paperjs.org/)                            | 222        |
-|[Fabric.js](http://fabricjs.com/)                          | 336        |
-|[Three JS](https://threejs.org/)                           | 633        |
-|[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)          | 114        |
-|[Pts](https://github.com/williamngan/pts)                  | 124        |
-|[EaselJS](https://github.com/CreateJS/EaselJS)             | 134        |
-|[SVG.js](https://github.com/svgdotjs/svg.js)               | 90         |
+|[PixiJS](https://www.pixijs.com)                           | ![](https://badgen.net/bundlephobia/min/pixi.js) |
+|[Mesh.js](https://github.com/mesh-js/mesh.js)              | ![](https://badgen.net/bundlephobia/min/@mesh.js/core) |
+|[P5.js](https://p5js.org)                                  | ![](https://badgen.net/bundlephobia/min/p5) |
+|[ZRender](https://github.com/ecomfe/zrender)               | ![](https://badgen.net/bundlephobia/min/zrender) |
+|[Two.js](https://two.js.org/)                              | ![](https://badgen.net/bundlephobia/min/two.js) |
+|[Konva.js](https://konvajs.org/)                           | ![](https://badgen.net/bundlephobia/min/konva) |
+|[CanvasKit](https://skia.org/docs/user/modules/canvaskit/) | ![](https://badgen.net/bundlephobia/min/canvaskit-wasm) |
+|[Pencil.js](https://pencil.js.org/)                        | ![](https://badgen.net/bundlephobia/min/pencil.js) |
+|[Paper.js](http://paperjs.org/)                            | ![](https://badgen.net/bundlephobia/min/paper) |
+|[Fabric.js](http://fabricjs.com/)                          | ![](https://badgen.net/bundlephobia/min/fabric) |
+|[Three JS](https://threejs.org/)                           | ![](https://badgen.net/bundlephobia/min/three) |
+|[Scrawl-canvas](https://scrawl-v8.rikweb.org.uk/)          | ![](https://badgen.net/bundlephobia/min/scrawl-canvas) |
+|[Pts](https://github.com/williamngan/pts)                  | ![](https://badgen.net/bundlephobia/min/pts) |
+|[EaselJS](https://github.com/CreateJS/EaselJS)             | ![](https://badgen.net/bundlephobia/min/@createjs/easeljs) |
+|[SVG.js](https://github.com/svgdotjs/svg.js)               | ![](https://badgen.net/bundlephobia/min/@svgdotjs/svg.js) |
 
 
 ## Quick Start
