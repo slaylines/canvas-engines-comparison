@@ -11,8 +11,11 @@ class ThreeEngine extends Engine {
       1000
     );
     this.camera.position.set(this.width / 2, this.height / 2, 500);
-    this.renderer = new THREE.WebGLRenderer({ antialias: true, depth: false });
-    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      depth: false,
+      precision: "lowp",
+    })
     this.renderer.setSize(this.width, this.height);
     this.renderer.sortObjects = false; // Allows squares to be drawn on top of each other
     this.content.appendChild(this.renderer.domElement);
