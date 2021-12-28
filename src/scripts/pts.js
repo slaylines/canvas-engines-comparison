@@ -1,12 +1,7 @@
 import Engine from "./engine";
 import {
   CanvasSpace,
-  Pt,
-  Group,
-  Line,
-  quickStart,
   Rectangle,
-  quickstart,
 } from "pts";
 
 class PtsEngine extends Engine {
@@ -30,17 +25,18 @@ class PtsEngine extends Engine {
     // fps meter
     this.meter.tick();
 
+    this.form.fill("#fff").stroke("#000");
+
     for (let i = 0; i < this.rects.length; i++) {
       const rect = this.rects[i];
-
-      if (rect.x + rect.size < 0) {
-        rect.x = this.width + rect.size / 2;
+      
+      if (rect.el[0].x + rect.size < 0) {
+        rect.el.moveTo( this.width + rect.size / 2, rect.el[0].y );
+      } else {
+        rect.el.subtract( rect.speed, 0 );
       }
 
-      rect.x -= rect.speed;
-      rect.el.moveTo([rect.x, rect.y]);
-      this.form.fillOnly("#fff").polygon(rect.el);
-      this.form.strokeOnly("#000").polygon(rect.el);
+      this.form.rect(rect.el);
     }
   }
 
@@ -53,12 +49,11 @@ class PtsEngine extends Engine {
       const speed = 1 + Math.random();
 
       var rect = Rectangle.fromCenter([x, y], [size, size]);
-      var poly = Rectangle.corners(rect);
-      rects.push({ x, y, size, speed, el: poly });
+      rects.push({ size, speed, el: rect });
     }
     this.rects = rects;
 
-    this.space.play().bindMouse();
+    this.space.play();
   }
 }
 
