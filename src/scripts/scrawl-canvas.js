@@ -1,5 +1,5 @@
 import Engine from "./engine";
-import scrawl from "scrawl-canvas";
+import * as scrawl from "scrawl-canvas";
 
 class SCEngine extends Engine {
   constructor() {
