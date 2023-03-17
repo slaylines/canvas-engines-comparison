@@ -4,7 +4,7 @@ https://benchmarks.slaylines.io/
 
 ## Description
 
-- Up to 8000 different rectangles moving on a canvas with various speed
+- Up to 32000 different rectangles moving on a canvas with various speed
 - Different choice of libraries used to render the scene :
 
 |                                                            | module kb                                                  |
