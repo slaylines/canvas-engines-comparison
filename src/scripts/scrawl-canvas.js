@@ -7,96 +7,93 @@ class SCEngine extends Engine {
   }
 
   render() {
-    if (scrawl.library.animation["demo"])
-      scrawl.library.animation["demo"].kill();
-    if (scrawl.library.canvas["my-canvas"])
-      scrawl.library.canvas["my-canvas"].kill();
-    if (scrawl.library.cell["cache"]) scrawl.library.cell["cache"].kill();
 
-    this.canvas = document.createElement("canvas");
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
-    this.canvas.id = "my-canvas";
-    this.content.appendChild(this.canvas);
-    const canvas = scrawl.getCanvas("#my-canvas");
+    // Namespacing boilerplate (to prevent memory leaks)
+    const namespace = 'vanilla';
+    const name = n => `${namespace}-${n}`;
 
+    // Handle pixelRatio edge case where user drags browser between screens of different pixel densities
+    let pixRatio = scrawl.getPixelRatio();
+
+    scrawl.setPixelRatioChangeAction(() => {
+      pixRatio = scrawl.getPixelRatio();
+      buildCanvas();
+      buildBoxes(boxes, count.value);
+    });
+
+    // Render variables
     let { meter, count, width, height } = this;
+
+    let canvas, ctx;
 
     const boxes = [];
 
-    canvas.buildCell({
-      name: "cache",
-      width: 50 * 40,
-      height: 50,
-      cleared: false,
-      compiled: false,
-      shown: false,
-    });
+    // Create the canvas element; import it into the SC library; set up its context engine; create the animation loop
+    const buildCanvas = () => {
 
-    const source = scrawl.library.cell.cache.element;
-    const sourceEngine = scrawl.library.cell.cache.engine;
+      if (scrawl.library.canvas[namespace]) scrawl.library.purge(namespace);
 
-    sourceEngine.fillStyle = "white";
-    sourceEngine.strokeStyle = "black";
-    sourceEngine.lineWidth = 1;
+      this.canvas = document.createElement('canvas');
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+      this.canvas.id = namespace;
+      this.content.appendChild(this.canvas);
 
-    for (let i = 0; i < 40; i++) {
-      let size = 10 + i,
-        delta = size / 2;
+      canvas = scrawl.getCanvas(namespace);
+      ctx = canvas.base.engine;
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 1 / pixRatio;
 
-      sourceEngine.setTransform(1, 0, 0, 1, 50 * i + 25, 25);
-      sourceEngine.fillRect(-delta, -delta, size, size);
-      sourceEngine.strokeRect(-delta, -delta, size, size);
-    }
+      scrawl.makeAnimation({
+        name: name('demo'),
+        fn: () => {
+          if (boxes.length !== count.value) buildBoxes(boxes, count.value);
 
+          canvas.clear();
+          drawBoxes();
+          canvas.show();
+          meter.tick();
+        },
+      });
+    };
+
+    // Create the array of box data used in the animation
     function buildBoxes(boxes, boxesRequired) {
       let size, x, y, dx;
 
       boxes.length = 0;
 
       for (let i = 0; i < boxesRequired; i++) {
-        size = 10 + Math.random() * 40;
+        size = Math.floor(10 + Math.random() * 40) / pixRatio;
         x = Math.random() * width;
-        y = Math.random() * height;
+        y = (Math.random() * height) - (size / 2);
         dx = -1 - Math.random();
 
-        boxes.push([x, y, dx, Math.floor(size - 10)]);
+        boxes.push([x, y, dx, size]);
       }
     }
 
-    const drawBoxes = (function () {
-      const engineWidth = width,
-        ctx = canvas.base.engine;
+    // Draw the boxes onto the canvas; update each box's position
+    const drawBoxes = () => {
 
-      let box, x, y, deltaX, boxpos, boxwidth;
+      let box, x, y, dX, w;
 
-      return function (B) {
-        for (let i = 0, iz = B.length; i < iz; i++) {
-          box = B[i];
-          [x, y, deltaX, boxpos] = box;
-          boxwidth = boxpos + 10;
+      for (let i = 0, iz = boxes.length; i < iz; i++) {
+        box = boxes[i];
+        [x, y, dX, w] = box;
 
-          ctx.drawImage(source, boxpos * 50, 0, 50, 50, x - 25, y - 25, 50, 50);
+        ctx.fillRect(x, y, w, w);
+        ctx.strokeRect(x, y, w, w);
 
-          x += deltaX;
-          if (x < -boxwidth) x += engineWidth + boxwidth * 2;
-          box[0] = x;
-        }
-      };
-    })();
+        x += dX;
+        if (x < -w) x += width + w * 2;
+        box[0] = x;
+      }
+    };
 
-    scrawl.makeAnimation({
-      name: "demo",
-
-      fn: () => {
-        if (boxes.length !== count.value) buildBoxes(boxes, count.value);
-
-        canvas.clear();
-        drawBoxes(boxes);
-        canvas.show();
-        meter.tick();
-      },
-    });
+    // Initialize and start the canvas scene
+    buildCanvas();
   }
 }
 
