@@ -6,7 +6,7 @@
   align-items: baseline;
   margin-bottom: 0.5em;
 }
-.count-selector > span {
+.count-selector > div {
   margin-right: 1em;
   font-size: 1.2em;
 }
@@ -18,6 +18,13 @@
   border-bottom-color: #fff;
   cursor: default;
   pointer-events: none;
+}
+.count-selector .danger {
+  align-self: flex-end;
+  margin: 0 0.2em 0 0.5em;
+  line-height: 1.5;
+  color: darkred;
+  font-size: 1.2em;
 }
 
 .meter > * {
