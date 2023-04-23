@@ -2189,9 +2189,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001261:
-  version "1.0.30001263"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001263.tgz#7ce7a6fb482a137585cbc908aaf38e90c53a16a4"
-  integrity sha512-doiV5dft6yzWO1WwU19kt8Qz8R0/8DgEziz6/9n2FxUasteZNwNNYSmJO3GLBH8lCVE73AB1RPDPAeYbcO5Cvw==
+  version "1.0.30001468"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001468.tgz"
+  integrity sha512-zgAo8D5kbOyUcRAgSmgyuvBkjrGk5CGYG5TYgFdpQv+ywcyEpo1LOWoG8YmoflGnh+V+UsNuKYedsoYs0hzV5A==
 
 canvas@^2.6.1:
   version "2.8.0"
@@ -5888,10 +5888,10 @@ saxes@^3.1.9:
   dependencies:
     xmlchars "^2.1.1"
 
-scrawl-canvas@^8.10.0:
-  version "8.10.0"
-  resolved "https://registry.yarnpkg.com/scrawl-canvas/-/scrawl-canvas-8.10.0.tgz#5d7c15fafdfe64316fd0a171526d41068cf2de00"
-  integrity sha512-WYa3Tp0nj/zgRNa9YEEerMnLm0WQU36bGQUPnr3Sf/e1XdEUZGkxkQumNPPLvNtLBc4SJEE4ptN7OGUVKNNMHg==
+scrawl-canvas@^8.10.1:
+  version "8.10.1"
+  resolved "https://registry.yarnpkg.com/scrawl-canvas/-/scrawl-canvas-8.10.1.tgz#694cf253705a935c92bc1e7d55dbbc33d6aef046"
+  integrity sha512-+Z3mwGscu/1yo7PQcHJ94w4hhd3poR9ne0zX5uUb2hbWV3LVXwWQpWXyeqcbiu7qUeUT318cMm6SZjo9JXeWWw==
 
 semver@7.0.0:
   version "7.0.0"
