@@ -25,6 +25,29 @@ https://benchmarks.slaylines.io/
 | [EaselJS](https://github.com/CreateJS/EaselJS)             | ![](https://badgen.net/bundlephobia/min/@createjs/easeljs) |
 | [SVG.js](https://github.com/svgdotjs/svg.js)               | ![](https://badgen.net/bundlephobia/min/@svgdotjs/svg.js)  |
 
+
+Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the comparison of the performance in different browsers (MacBook Pro 2019, 8k boxes):
+
+| Library | Chrome | Firefox | Safari |
+| --- | --- | --- | --- |
+| Pixi | 60 | 43 | 24 |
+| Scrawl-canvas | 51 | 60 | 32 |
+| P5 | 15 | 4 | 34 |
+| Mesh | 47 | 30 | 18 |
+| ZRender | 13 | 4 | 22 |
+| Two | 23 | 21 | 16 |
+| Konva | 23 | 7 | 16 |
+| CanvasKit | 17 | 19 | 19 |
+| Paper | 16 | 6 | 14 |
+| Easel | 11 | 4 | 22 |
+| Pencil | 12 | 3 | 19 |
+| Pts | 12 | 4 | 11 |
+| Fabric | 9 | 4 | 7 |
+| SVG | 10 | 7 | 8 |
+| Three | 8 | 6 | 4 |
+| DOM | 12 | 1 | 9 |
+
+
 ## Quick Start
 
 ```
