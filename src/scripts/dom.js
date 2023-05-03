@@ -1,25 +1,23 @@
 import Engine from "./engine";
-import { fabric } from "fabric";
 
-class FabricEngine extends Engine {
+class DomEngine extends Engine {
   constructor() {
     super();
     this.canvas = document.createElement("div");
     this.canvas.className = "canvas";
     this.canvas.style.width = this.width;
     this.canvas.style.height = this.height;
+    this.canvas.style.position = "relative";
     this.content.appendChild(this.canvas);
   }
 
-  init() {}
-
   animate() {
     const rects = this.rects;
-    for (let i = 0; i < this.count.value; i++) {
+    for (let i = 0, iz =  this.count.value; i < iz; i++) {
       const r = rects[i];
       r.x -= r.speed;
-      r.el.style.left = r.x;
-      if (r.x + r.size < 0) {
+      r.el.style.transform = `translate(${r.x}px, ${r.y}px)`;
+      if (r.x + (r.size * 2) < 0) {
         r.x = this.width + r.size;
       }
     }
@@ -34,7 +32,7 @@ class FabricEngine extends Engine {
     this.cancelAnimationFrame(this.request);
 
     // rectangle creation
-    const rects = new Array(this.count);
+    const rects = [];
     for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
@@ -43,10 +41,10 @@ class FabricEngine extends Engine {
 
       let rect = document.createElement("div");
       rect.className = "rectangle";
-      rect.style.left = x + "px";
-      rect.style.top = y + "px";
       rect.style.width = size + "px";
       rect.style.height = size + "px";
+      rect.style.position = "absolute";
+      rect.style.transform = `translate(${x}px, ${y}px)`;
       this.canvas.appendChild(rect);
       rects[i] = { x, y, size: size / 2, speed, el: rect };
     }
@@ -57,7 +55,6 @@ class FabricEngine extends Engine {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const engine = new FabricEngine();
-  engine.init();
+  const engine = new DomEngine();
   engine.render();
 });
