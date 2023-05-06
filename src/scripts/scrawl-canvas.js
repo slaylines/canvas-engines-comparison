@@ -12,21 +12,29 @@ class SCEngine extends Engine {
     const namespace = 'vanilla';
     const name = n => `${namespace}-${n}`;
 
-    // Handle pixelRatio edge case where user drags browser between screens of different pixel densities
+    // Variables
     let pixRatio = scrawl.getPixelRatio();
 
-    scrawl.setPixelRatioChangeAction(() => {
-      pixRatio = scrawl.getPixelRatio();
-      buildCanvas();
-      buildBoxes(boxes, count.value);
-    });
+    const { meter, count, width, height } = this;
 
-    // Render variables
-    let { meter, count, width, height } = this;
+    let pixWidth = width / pixRatio;
 
     let canvas, ctx;
 
+    const rnd = Math.random;
+
     const boxes = [];
+
+    // Handle pixelRatio edge case where user drags browser between screens of different pixel densities
+    scrawl.setPixelRatioChangeAction(() => {
+
+      pixRatio = scrawl.getPixelRatio();
+      pixWidth = width / pixRatio;
+
+      buildCanvas();
+      
+      buildBoxes(boxes, count.value);
+    });
 
     // Create the canvas element; import it into the SC library; set up its context engine; create the animation loop
     const buildCanvas = () => {
@@ -34,8 +42,8 @@ class SCEngine extends Engine {
       if (scrawl.library.canvas[namespace]) scrawl.library.purge(namespace);
 
       this.canvas = document.createElement('canvas');
-      this.canvas.width = this.width;
-      this.canvas.height = this.height;
+      this.canvas.width = width;
+      this.canvas.height = height;
       this.canvas.id = namespace;
       this.content.appendChild(this.canvas);
 
@@ -43,7 +51,7 @@ class SCEngine extends Engine {
       ctx = canvas.base.engine;
       ctx.fillStyle = "white";
       ctx.strokeStyle = "black";
-      ctx.lineWidth = 1 / pixRatio;
+      ctx.lineWidth = 1;
 
       scrawl.makeAnimation({
         name: name('demo'),
@@ -60,15 +68,16 @@ class SCEngine extends Engine {
 
     // Create the array of box data used in the animation
     function buildBoxes(boxes, boxesRequired) {
+
       let size, x, y, dx;
 
       boxes.length = 0;
 
       for (let i = 0; i < boxesRequired; i++) {
-        size = Math.floor(10 + Math.random() * 40) / pixRatio;
-        x = Math.random() * width;
-        y = (Math.random() * height) - (size / 2);
-        dx = -1 - Math.random();
+        size = ~~((10 + rnd() * 40) / pixRatio);
+        x = rnd() * pixWidth;
+        y = ~~((rnd() * height) - (size / 2)) / pixRatio;
+        dx = (-1 - rnd()) / pixRatio;
 
         boxes.push([x, y, dx, size]);
       }
@@ -77,17 +86,20 @@ class SCEngine extends Engine {
     // Draw the boxes onto the canvas; update each box's position
     const drawBoxes = () => {
 
-      let box, x, y, dX, w;
+      let box, x, y, dX, w, bx;
 
       for (let i = 0, iz = boxes.length; i < iz; i++) {
+
         box = boxes[i];
         [x, y, dX, w] = box;
 
-        ctx.fillRect(~~x, ~~y, w, w);
-        ctx.strokeRect(~~x, ~~y, w, w);
+        bx = ~~x;
+
+        ctx.fillRect(bx, y, w, w);
+        ctx.strokeRect(bx, y, w, w);
 
         x += dX;
-        if (x < -w) x += width + w * 2;
+        if (x < -w) x += pixWidth + w * 2;
         box[0] = x;
       }
     };

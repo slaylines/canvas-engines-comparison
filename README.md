@@ -26,26 +26,27 @@ https://benchmarks.slaylines.io/
 | [SVG.js](https://github.com/svgdotjs/svg.js)               | ![](https://badgen.net/bundlephobia/min/@svgdotjs/svg.js)  |
 
 
-Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the comparison of the performance in different browsers (MacBook Pro 2019, 8k boxes):
+Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the (highly unscientific) comparison of the performance in different browsers (MacBook Pro 2019, 8k boxes):
 
 | Library | Chrome | Firefox | Safari |
 | --- | --- | --- | --- |
-| Pixi | 60 | 43 | 24 |
-| Scrawl-canvas | 51 | 60 | 32 |
-| P5 | 15 | 4 | 34 |
-| Mesh | 47 | 30 | 18 |
-| ZRender | 13 | 4 | 22 |
-| Two | 23 | 21 | 16 |
-| Konva | 23 | 7 | 16 |
-| CanvasKit | 17 | 19 | 19 |
-| Paper | 16 | 6 | 14 |
-| Easel | 11 | 4 | 22 |
+| Pixi | 60 | 48 | 24 |
+| Scrawl-canvas | 56 | 60 | 40 |
+| P5 | 15 | 4 | 44 |
+| Mesh | 47 | 34 | 18 |
+| ZRender | 13 | 4 | 28 |
+| Two | 23 | 25 | 16 |
+| Konva | 23 | 7 | 19 |
+| CanvasKit | 17 | 19 | 22 |
+| Paper | 16 | 6 | 16 |
+| Easel | 11 | 4 | 28 |
 | Pencil | 12 | 3 | 19 |
-| Pts | 12 | 4 | 11 |
-| Fabric | 9 | 4 | 7 |
-| SVG | 10 | 7 | 8 |
-| Three | 8 | 6 | 4 |
-| DOM | 12 | 1 | 9 |
+| Pts | 12 | 4 | 13 |
+| Fabric | 9 | 4 | 9 |
+| SVG | 10 | 7 | 10 |
+| Three | 8 | 7 | 4 |
+| DOM | 17 | 1 | 11 |
+| Raw JS | 19 | 19 | 39 |
 
 
 ## Quick Start

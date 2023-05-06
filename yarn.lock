@@ -5888,10 +5888,10 @@ saxes@^3.1.9:
   dependencies:
     xmlchars "^2.1.1"
 
-scrawl-canvas@^8.10.1:
-  version "8.10.1"
-  resolved "https://registry.yarnpkg.com/scrawl-canvas/-/scrawl-canvas-8.10.1.tgz#694cf253705a935c92bc1e7d55dbbc33d6aef046"
-  integrity sha512-+Z3mwGscu/1yo7PQcHJ94w4hhd3poR9ne0zX5uUb2hbWV3LVXwWQpWXyeqcbiu7qUeUT318cMm6SZjo9JXeWWw==
+scrawl-canvas@^8.10.3:
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/scrawl-canvas/-/scrawl-canvas-8.10.3.tgz#2d42f70fd2dad5f578b14a3971093f69525a5eea"
+  integrity sha512-MykgPVV/sFkbzW/FMsDml/u0k3H36RVnrn7PAJAwUfb5TjBGNmbd4yC0s+N+F0aii4D9eY4XdMtc0Cc3P3IgTQ==
 
 semver@7.0.0:
   version "7.0.0"
