@@ -4,9 +4,11 @@ import * as THREE from "three";
 class ThreeEngine extends Engine {
   constructor() {
     super();
-    this.camera = new THREE.PerspectiveCamera(
-      50,
-      this.width / this.height,
+    this.camera = new THREE.OrthographicCamera(
+      - this.width / 2,
+      this.width / 2,
+      this.height / 2,
+      - this.height / 2,
       1,
       1000
     );
@@ -54,8 +56,8 @@ class ThreeEngine extends Engine {
         // borders come directly after planes in the scene
         size = child.geometry.parameters.width;
       }
-      if (child.position.x + size * 2 < 0) {
-        child.position.x = this.width + size * 2;
+      if (child.position.x + size / 2 < 0) {
+        child.position.x = this.width + size / 2;
       }
     }
 
