@@ -27,80 +27,58 @@ class WebGLEngine extends Engine {
   }
 
   initProgramWebGL(shaderStrings) {
+    const gl = this.gl
     let { fragmentString, vertexString } = shaderStrings;
-    const fragmentShader = initShader(
-      this.gl,
-      fragmentString,
-      this.gl.FRAGMENT_SHADER);
-    const vertexShader = initShader(
-      this.gl,
-      vertexString,
-      this.gl.VERTEX_SHADER);
-    this.prg = createProgramGL(this.gl,
-      [fragmentShader, vertexShader],
-      [
-        'a_coords',
-        'a_sizes',
-      ]);
-    this.gl.useProgram(this.prg);
+    const fragmentShader = initShader(gl, fragmentString, gl.FRAGMENT_SHADER);
+    const vertexShader = initShader(gl, vertexString, gl.VERTEX_SHADER);
+    this.prgGL = createProgramGL(gl, [fragmentShader, vertexShader], ['a_coords', 'a_sizes']);
+    gl.useProgram(this.prgGL);
   }
 
   initLocations() {
-    this.coordsLoc = this.gl.getAttribLocation(this.prg, 'a_coords');
-    this.sizesLoc = this.gl.getAttribLocation(this.prg, 'a_sizes');
+    const gl = this.gl
+    const prg = this.prgGL
+    this.coordsLoc = gl.getAttribLocation(prg, 'a_coords');
+    this.sizesLoc = gl.getAttribLocation(prg, 'a_sizes');
 
-    let resolutionLoc = this.gl.getUniformLocation(this.prg, 'u_resolution');
-    this.gl.uniform2f(resolutionLoc, this.gl.canvas.width, this.gl.canvas.height);
+    let resolutionLoc = gl.getUniformLocation(prg, 'u_resolution');
+    gl.uniform2f(resolutionLoc, gl.canvas.width, gl.canvas.height);
 
-    this.timeLoc = this.gl.getUniformLocation(this.prg, 'u_time');
+    this.timeLoc = gl.getUniformLocation(prg, 'u_time');
 
-    this.baseColorLoc = this.gl.getUniformLocation(this.prg, "u_baseColor");
-    this.borderColorLoc = this.gl.getUniformLocation(this.prg, "u_borderColor");
-    this.borderSizeLoc = this.gl.getUniformLocation(this.prg, "u_borderSize");
-    this.gl.uniform4fv(this.baseColorLoc, [0, 0, 0, 1]);
-    this.gl.uniform4fv(this.borderColorLoc, [1, 1, 1, 1]);
-    this.gl.uniform1f(this.borderSizeLoc, 1.);
-  }
+    this.baseColorLoc = gl.getUniformLocation(prg, "u_baseColor");
+    this.borderColorLoc = gl.getUniformLocation(prg, "u_borderColor");
+    gl.uniform4fv(this.baseColorLoc, [1, 1, 1, 1]);
+    gl.uniform4fv(this.borderColorLoc, [0, 0, 0, 1]);
 
-  spawnRectangles() {
-    const { count, width, height } = this;
-    const rnd = Math.random;
-    const rects_tmp = [];
-    const zStep = 0.9 / count.value;
-    for (let i = 0, iz = count.value; i < iz; i++) {
-      const x = rnd() * width;
-      const y = rnd() * height;
-      const speed = -1 - rnd();
-      const halfSize = (10 + rnd() * 40) / 2.;
-      const zOrder = i * zStep;
-      rects_tmp.push([x, ~~y, speed, ~~halfSize, zOrder]);
-    }
-    this.rects = Object.freeze(rects_tmp);
+    this.borderSizeLoc = gl.getUniformLocation(prg, "u_borderSize");
+    gl.uniform1f(this.borderSizeLoc, 1.);
   }
 
   bufferDataWebGL() {
+    const gl = this.gl
     this.fillVertices();
 
-    const sizesBuf = this.gl.createBuffer();
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, sizesBuf);
-    this.gl.bufferData(this.gl.ARRAY_BUFFER, this.sizes, this.gl.DYNAMIC_DRAW);
-    this.gl.enableVertexAttribArray(this.sizesLoc);
-    this.gl.vertexAttribPointer(this.sizesLoc, 1, this.gl.FLOAT, false, 0, 0);
+    const sizesBuf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, sizesBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, this.sizes, gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(this.sizesLoc);
+    gl.vertexAttribPointer(this.sizesLoc, 1, gl.FLOAT,
+      false, 0, 0);
 
-    const coordsBuf = this.gl.createBuffer();
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, coordsBuf);
-    this.gl.bufferData(this.gl.ARRAY_BUFFER, this.coords, this.gl.DYNAMIC_DRAW);
-    this.gl.enableVertexAttribArray(this.coordsLoc);
-    this.gl.vertexAttribPointer(this.coordsLoc, this.FLOATS_PER_VERT, this.gl.FLOAT,
+    const coordsBuf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, coordsBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, this.coords, gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(this.coordsLoc);
+    gl.vertexAttribPointer(this.coordsLoc, this.FLOATS_PER_VERT, gl.FLOAT,
       false, 0, 0);
     console.log('WebGL vertices to draw:', this.coords.length / this.FLOATS_PER_VERT)
   }
 
   fillVertices() {
-    this.FLOATS_PER_VERT = 4  // x, y, vx, vy
+    this.FLOATS_PER_VERT = 4  // x, y, z, vx
     this.coords = new Float32Array(this.FLOATS_PER_VERT * this.rects.length);
     this.sizes = new Float32Array(this.rects.length);
-
     for (var i = 0, len = this.rects.length; i < len; i++) {
       this.setVertex(i);
     }
@@ -108,11 +86,27 @@ class WebGLEngine extends Engine {
 
   setVertex(index) {
     const jj = index * this.FLOATS_PER_VERT;
-    this.coords[jj] = ~~this.rects[index][0]  // pos.x;
-    this.coords[jj + 1] = ~~this.rects[index][1] // pos.y;
-    this.coords[jj + 2] = this.rects[index][4] // zOrder
-    this.coords[jj + 3] = this.rects[index][2] // vel.x;
-    this.sizes[index] = ~~this.rects[index][3]  // halfSize
+    this.coords[jj] = ~~this.rects[index][0];     // pos.x
+    this.coords[jj + 1] = ~~this.rects[index][1]; // pos.y
+    this.coords[jj + 2] = this.rects[index][2];   // zOrder
+    this.coords[jj + 3] = this.rects[index][3];   // vel.x
+    this.sizes[index] = ~~this.rects[index][4];   // halfSize
+  }
+
+  spawnRectangles() {
+    const { count, width, height } = this;
+    const rnd = Math.random;
+    const rects = [];
+    const zStep = 0.8 / count.value;
+    for (let i = 0, iz = count.value; i < iz; i++) {
+      const x = rnd() * width;
+      const y = rnd() * height;
+      const speedX = -1 - rnd();
+      const halfSize = (10 + rnd() * 40) / 2.;
+      const zOrder = 0.1 + (i * zStep);
+      rects.push([x, ~~y, zOrder, speedX, ~~halfSize]);
+    }
+    this.rects = Object.freeze(rects);
   }
 
   render() {
@@ -122,7 +116,6 @@ class WebGLEngine extends Engine {
     this.time = 0;
     this.spawnRectangles();
     this.bufferDataWebGL();
-    // this.draw();
     this.request = requestAnimationFrame(() => this.step());
   }
 
@@ -148,7 +141,6 @@ class WebGLEngine extends Engine {
       attribute vec4 a_coords;
       attribute float a_sizes;
 
-      uniform float u_pointSize;
       uniform float u_time;
       uniform vec2 u_resolution;
 
@@ -164,12 +156,12 @@ class WebGLEngine extends Engine {
         float delta = a_coords.w * u_time + a_coords.x;
         float x = mod(delta, u_resolution.x);
         v_pos = vec2(x, a_coords.y);
-        vec2 clipSpaceXY = clip(v_pos);
-        gl_Position = vec4(clipSpaceXY, a_coords.z, 1);
+        gl_Position = vec4(clip(v_pos), a_coords.z, 1);
         gl_PointSize = a_sizes * 2.;
         v_size = a_sizes;
       }
-      `
+      `  // end of vertexString
+
     const fragmentString = /*glsl*/`
       precision lowp float;
 
@@ -181,6 +173,9 @@ class WebGLEngine extends Engine {
       uniform vec4 u_borderColor;
 
       void main () {
+        // canonic way is to use step() or smoothstep() instead of 'if'
+        // see https://blog.scottlogic.com/2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html
+        // for more details of how it can be done (with nice anti-aliasing)
         if (
               gl_FragCoord.y>v_pos.y+v_size-u_borderSize
               ||
@@ -190,30 +185,15 @@ class WebGLEngine extends Engine {
               ||
               gl_FragCoord.x<v_pos.x-v_size+u_borderSize
             ) 
+          gl_FragColor = u_borderColor;
+        else 
           gl_FragColor = u_baseColor;
-        else gl_FragColor = u_borderColor;
       }
-      `
+      `  // end of fragmentString
     return { fragmentString, vertexString }
   }
 
-  getBasicShaderStrings() {
-    // Use 'WebGL GLSL Editor' extension in VSCode for code highlight
-    const vertexString = /*glsl*/`
-      attribute vec4 a_coords;
-      void main() {
-        gl_Position = a_coords;
-      }
-      `
-    const fragmentString = /*glsl*/`
-      precision mediump float;
-      void main() {
-        gl_FragColor = vec4(1, 0, 0.5, 1); 
-      } 
-      `
-    return { fragmentString, vertexString }
-  }
-}
+} // end of class WebGLEngine
 
 document.addEventListener("DOMContentLoaded", () => {
   const engine = new WebGLEngine();
