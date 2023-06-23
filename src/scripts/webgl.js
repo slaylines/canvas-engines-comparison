@@ -22,6 +22,7 @@ class WebGLEngine extends Engine {
       { antialias: false }
     );
     if (!gl) throw '*** ERROR: WebGL Unsupported ***';
+    gl.enable(gl.DEPTH_TEST);
     this.gl = gl;
   }
 
@@ -65,12 +66,14 @@ class WebGLEngine extends Engine {
     const { count, width, height } = this;
     const rnd = Math.random;
     const rects_tmp = [];
+    const zStep = 0.9 / count.value;
     for (let i = 0, iz = count.value; i < iz; i++) {
       const x = rnd() * width;
       const y = rnd() * height;
       const speed = -1 - rnd();
       const halfSize = (10 + rnd() * 40) / 2.;
-      rects_tmp.push([x, ~~y, speed, ~~halfSize]);
+      const zOrder = i * zStep;
+      rects_tmp.push([x, ~~y, speed, ~~halfSize, zOrder]);
     }
     this.rects = Object.freeze(rects_tmp);
   }
@@ -107,8 +110,8 @@ class WebGLEngine extends Engine {
     const jj = index * this.FLOATS_PER_VERT;
     this.coords[jj] = ~~this.rects[index][0]  // pos.x;
     this.coords[jj + 1] = ~~this.rects[index][1] // pos.y;
-    this.coords[jj + 2] = this.rects[index][2] // vel.x;
-    this.coords[jj + 3] = 0.  // vel.y;
+    this.coords[jj + 2] = this.rects[index][4] // zOrder
+    this.coords[jj + 3] = this.rects[index][2] // vel.x;
     this.sizes[index] = ~~this.rects[index][3]  // halfSize
   }
 
@@ -158,13 +161,11 @@ class WebGLEngine extends Engine {
       }
 
       void main() {
-        vec2 delta = a_coords.zw * u_time + a_coords.xy;
-
-        float x = mod(delta.x, u_resolution.x);
-        float y = mod(delta.y, u_resolution.y);
-        vec2 clipSpaceXY = clip(vec2(x, y));
-        v_pos = vec2(x, y);
-        gl_Position = vec4(clipSpaceXY, 0, 1);
+        float delta = a_coords.w * u_time + a_coords.x;
+        float x = mod(delta, u_resolution.x);
+        v_pos = vec2(x, a_coords.y);
+        vec2 clipSpaceXY = clip(v_pos);
+        gl_Position = vec4(clipSpaceXY, a_coords.z, 1);
         gl_PointSize = a_sizes * 2.;
         v_size = a_sizes;
       }
