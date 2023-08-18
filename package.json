@@ -12,6 +12,7 @@
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"
   },
   "dependencies": {
+    "@next2d/player": "^1.16.0",
     "@createjs/easeljs": "^2.0.0-beta.4",
     "@mesh.js/core": "^1.1.23",
     "@svgdotjs/svg.js": "^3.1.1",
