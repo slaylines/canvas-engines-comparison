@@ -4,8 +4,6 @@ import "@next2d/player";
 class Next2DEngine extends Engine {
     constructor() {
 
-        console.log("koko");
-
         super();
 
         const div = document.createElement("div");
