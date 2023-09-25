@@ -24,6 +24,7 @@ https://benchmarks.slaylines.io/
 | [Pts](https://github.com/williamngan/pts)                  | ![](https://badgen.net/bundlephobia/min/pts)               |
 | [EaselJS](https://github.com/CreateJS/EaselJS)             | ![](https://badgen.net/bundlephobia/min/@createjs/easeljs) |
 | [SVG.js](https://github.com/svgdotjs/svg.js)               | ![](https://badgen.net/bundlephobia/min/@svgdotjs/svg.js)  |
+| [Next2D](https://next2d.app)                               | ![](https://badgen.net/bundlephobia/min/@next2d/player)    |
 
 
 Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the (highly unscientific) comparison of the performance in different browsers (MacBook Pro 2019, 8k boxes):
