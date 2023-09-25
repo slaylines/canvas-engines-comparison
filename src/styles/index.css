@@ -4,7 +4,7 @@
 .count-selector {
   display: flex;
   align-items: baseline;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
 }
 .count-selector > div {
   margin-right: 1em;
@@ -37,7 +37,6 @@ TODO: fix Konva to not overwrite canvas styles
 svg,
 canvas,
 .canvas {
-  margin-top: 1em !important;
   border: 1px solid #999 !important;
 }
 
@@ -53,4 +52,14 @@ div.rectangle {
   position: absolute;
   background: white;
   border: solid 1px;
+}
+
+/*
+Fix for the border of Next2d canvas
+*/
+#__next2d__ {
+  border: 1px solid #999 !important;
+}
+#__next2d__ canvas {
+  border: none !important;
 }
