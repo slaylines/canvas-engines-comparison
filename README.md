@@ -49,7 +49,7 @@ Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the (highly unscientif
 | DOM | 17 | 1 | 11 |
 | Raw JS | 19 | 19 | 39 |
 
-WebGL outperforms them all with 60/120 fps on modern hardware (2023 laptop\tablet\mobile) for 1M boxes due to GPU offload of position computations.
+Pure WebGL implementation outperforms them all with 60/120 fps on modern hardware (2023 laptop/tablet/mobile) for 1M boxes due to GPU offload of position computations.
 
 ## Quick Start
 
