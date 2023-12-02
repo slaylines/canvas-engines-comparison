@@ -944,6 +944,19 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
+"@lightningjs/renderer@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@lightningjs/renderer/-/renderer-0.5.0.tgz#c853a039e59224b3ba080f885e0f2459d879e252"
+  integrity sha512-xlsdDibc3ftBdcWvS4PWCoLjZ/uXp4Jl0I7+7wfQuoRGHst9kQ31+clB+kpJSpCIR+CxtYxMpYUVIjC5QC2eOA==
+  dependencies:
+    "@lightningjs/threadx" "^0.3.4"
+    "@protobufjs/eventemitter" "^1.1.0"
+
+"@lightningjs/threadx@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@lightningjs/threadx/-/threadx-0.3.4.tgz#c952e5022b38bef5b74835f5bc92984b3b3d4177"
+  integrity sha512-x9ylADrRxSrIczcMHgkNYpmnvoPvWKuasxmEf3dnixazpYJCw9HLoWNOi2UsD0U4oEL/tMQZA0sZbO7VVGMTag==
+
 "@mapbox/node-pre-gyp@^1.0.0":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.5.tgz#2a0b32fcb416fb3f2250fd24cb2a81421a4f5950"
@@ -1691,6 +1704,11 @@
     earcut "^2.2.2"
     eventemitter3 "^3.1.0"
     url "^0.11.0"
+
+"@protobufjs/eventemitter@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@protobufjs/eventemitter/-/eventemitter-1.1.0.tgz#355cbc98bafad5978f9ed095f397621f1d066b70"
+  integrity sha512-j9ednRT81vYJ9OfVuXG6ERSTdEL1xVsNgqpkxMsbIabzSo3goCjDIveeGv5d03om39ML71RdmrGNjG5SReBP/Q==
 
 "@sindresorhus/fnv1a@^1.0.0":
   version "1.2.0"
