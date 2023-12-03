@@ -52,7 +52,6 @@ class Lightning extends Engine {
         width: size,
         height: size,
         parent: this.renderer.root,
-        color: 0xffffffff,
         shader: this.renderer.createShader('DynamicShader', {
           effects: [
             {
