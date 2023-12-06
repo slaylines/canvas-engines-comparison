@@ -1,5 +1,8 @@
 import Engine from "./engine";
-import { RendererMain, MainRenderDriver } from "@lightningjs/renderer/dist/exports/main-api";
+import {
+  RendererMain,
+  MainRenderDriver,
+} from "@lightningjs/renderer/dist/exports/main-api";
 
 class Lightning extends Engine {
   constructor() {
@@ -13,20 +16,11 @@ class Lightning extends Engine {
         clearColor: 0xffffffff,
       },
       this.content,
-      new MainRenderDriver(),
+      new MainRenderDriver()
     );
-
   }
 
   animate() {
-    for (let i = 0; i < this.count.value; i++) {
-      const r = this.rects[i];
-      r.node.x -= r.speed;
-      if (r.node.x + r.node.width < 0) {
-        r.node.x = this.width + r.node.width;
-      }
-    }
-
     this.meter.tick();
     this.request = requestAnimationFrame(() => this.animate());
   }
@@ -43,19 +37,18 @@ class Lightning extends Engine {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
-      const speed = 1 + Math.random();
+      const speed = Math.random() * 0.1 + 0.1;
 
-      
       const node = this.renderer.createNode({
         x,
         y,
         width: size,
         height: size,
         parent: this.renderer.root,
-        shader: this.renderer.createShader('DynamicShader', {
+        shader: this.renderer.createShader("DynamicShader", {
           effects: [
             {
-              type: 'border',
+              type: "border",
               props: {
                 width: 1,
                 color: 0x000000ff,
@@ -64,6 +57,29 @@ class Lightning extends Engine {
           ],
         }),
       });
+
+      let animation;
+      const firstDuration = (x + size) / speed;
+      const secondDuration = (this.width + size) / speed;
+      let init = true;
+
+      (async () => {
+        while (true) {
+          animation = node
+            .animate(
+              {
+                x: 0 - size,
+              },
+              {
+                duration: init ? firstDuration : secondDuration,
+              }
+            )
+            .start();
+          await animation.waitUntilStopped();
+          if (init) init = false;
+          node.x = this.width;
+        }
+      })();
 
       this.rects[i] = { node, speed };
     }
