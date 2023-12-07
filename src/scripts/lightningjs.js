@@ -1,8 +1,5 @@
 import Engine from "./engine";
-import {
-  RendererMain,
-  MainRenderDriver,
-} from "@lightningjs/renderer/dist/exports/main-api";
+import { RendererMain, MainCoreDriver } from "@lightningjs/renderer/dist/exports/main-api";
 
 class Lightning extends Engine {
   constructor() {
@@ -16,7 +13,7 @@ class Lightning extends Engine {
         clearColor: 0xffffffff,
       },
       this.content,
-      new MainRenderDriver()
+      new MainCoreDriver(),
     );
   }
 
@@ -29,7 +26,7 @@ class Lightning extends Engine {
     this.cancelAnimationFrame(this.request);
     await this.renderer.init();
     for (let i = 0; i < this.rects.length; i++) {
-      this.renderer.destroyNode(this.rects[i].node);
+      this.renderer.destroyNode(this.rects[i]);
     }
 
     this.rects = new Array(this.count);
@@ -37,7 +34,7 @@ class Lightning extends Engine {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const size = 10 + Math.random() * 40;
-      const speed = Math.random() * 0.1 + 0.1;
+      const speed = Math.random() * 0.1 + 0.05;
 
       const node = this.renderer.createNode({
         x,
@@ -81,7 +78,7 @@ class Lightning extends Engine {
         }
       })();
 
-      this.rects[i] = { node, speed };
+      this.rects[i] = node;
     }
 
     this.request = requestAnimationFrame(() => this.animate());

@@ -944,10 +944,10 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
-"@lightningjs/renderer@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@lightningjs/renderer/-/renderer-0.5.0.tgz#c853a039e59224b3ba080f885e0f2459d879e252"
-  integrity sha512-xlsdDibc3ftBdcWvS4PWCoLjZ/uXp4Jl0I7+7wfQuoRGHst9kQ31+clB+kpJSpCIR+CxtYxMpYUVIjC5QC2eOA==
+"@lightningjs/renderer@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@lightningjs/renderer/-/renderer-0.6.0.tgz#bb9bbc594563c754b076144696d796e60edc97c8"
+  integrity sha512-CGMs47vDN1Rd4t130NBuPmAMQ4FGzssFLPlaP541jSlD0TcvHCOFPnfOG/mnCOFqLIm0farUGIaXhqRAKvJUjQ==
   dependencies:
     "@lightningjs/threadx" "^0.3.4"
     "@protobufjs/eventemitter" "^1.1.0"
