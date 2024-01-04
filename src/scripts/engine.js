@@ -15,14 +15,17 @@ class Engine {
 
     this.initMenuLink();
 
-    this.cancelAnimationFrame =
-      (
-        window.cancelAnimationFrame ||
-        window.webkitCancelRequestAnimationFrame ||
-        window.mozCancelRequestAnimationFrame ||
-        window.oCancelRequestAnimationFrame ||
-        window.msCancelRequestAnimationFrame
-      )?.bind(window) || clearTimeout;
+    const cancelAnimationFrameObj = (
+      window.cancelAnimationFrame ||
+      window.webkitCancelRequestAnimationFrame ||
+      window.mozCancelRequestAnimationFrame ||
+      window.oCancelRequestAnimationFrame ||
+      window.msCancelRequestAnimationFrame
+    );
+
+    this.cancelAnimationFrame = cancelAnimationFrameObj
+      ? cancelAnimationFrameObj.bind(window) || clearTimeout
+      : clearTimeout;
   }
 
   initFpsmeter() {
