@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel serve src/pages/pixi.pug --open",
-    "build": "parcel build src/pages/pixi.pug --no-source-maps",
+    "build": "parcel build src/pages/pixi.pug --no-source-maps --no-scope-hoist",
     "deploy": "yarn build && yarn copy",
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"
   },
