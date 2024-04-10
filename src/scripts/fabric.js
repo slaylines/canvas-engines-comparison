@@ -1,27 +1,21 @@
+import * as fabric from "fabric";
 import Engine from "./engine";
-import { fabric } from "fabric";
 
 class FabricEngine extends Engine {
   constructor() {
     super();
-    this.canvas = document.createElement("canvas");
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
-    this.content.appendChild(this.canvas);
-  }
-
-  init() {
-    fabric.Object.prototype.objectCaching = false;
-    fabric.Object.prototype.originX = "center";
-    fabric.Object.prototype.originY = "center";
-    this.fabricCanvas = new fabric.StaticCanvas(this.canvas, {
-      enableRetinaScaling: false,
+    const canvas = document.createElement("canvas");
+    this.content.appendChild(canvas);
+    this.fabricCanvas = new fabric.StaticCanvas(canvas, {
+      width: this.width,
+      height: this.height,
+      enableRetinaScaling: true,
       renderOnAddRemove: false,
     });
     window.canvas = this.fabricCanvas;
   }
 
-  animate() {
+  animate = () => {
     const rects = this.rects;
     for (let i = 0; i < this.count.value; i++) {
       const r = rects[i];
@@ -31,11 +25,11 @@ class FabricEngine extends Engine {
         r.x = this.width + r.size;
       }
     }
-    this.fabricCanvas.renderAll();
+    this.fabricCanvas.requestRenderAll();
     this.meter.tick();
 
-    this.request = requestAnimationFrame(() => this.animate());
-  }
+    this.request = requestAnimationFrame(this.animate);
+  };
 
   render() {
     // clear the canvas
@@ -55,20 +49,22 @@ class FabricEngine extends Engine {
         height: size,
         fill: "white",
         stroke: "black",
-        top: y,
         left: x,
+        top: y,
+        objectCaching: false,
+        originX: "center",
+        originY: "center",
       });
       rects[i] = { x, y, size: size / 2, speed, el: fRect };
     }
     this.rects = rects;
     this.fabricCanvas.add(...rects.map((rect) => rect.el));
 
-    this.request = requestAnimationFrame(() => this.animate());
+    this.request = requestAnimationFrame(this.animate);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const engine = new FabricEngine();
-  engine.init();
   engine.render();
 });

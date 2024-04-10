@@ -18,7 +18,7 @@
     "@next2d/player": "^1.16.0",
     "@svgdotjs/svg.js": "^3.1.1",
     "canvaskit-wasm": "^0.30.0",
-    "fabric": "^4.6.0",
+    "fabric": "^6.0.0-beta20",
     "fpsmeter": "0.3.1",
     "konva": "8.1.4",
     "leafer-ui": "^1.0.0-rc.9",
