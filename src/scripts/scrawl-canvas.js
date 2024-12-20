@@ -93,10 +93,8 @@ class SCEngine extends Engine {
         box = boxes[i];
         [x, y, dX, w] = box;
 
-        bx = ~~x;
-
-        ctx.fillRect(bx, y, w, w);
-        ctx.strokeRect(bx, y, w, w);
+        ctx.strokeRect(x, y, w, w);
+        ctx.fillRect(x, y, w, w);
 
         x += dX;
         if (x < -w) x += pixWidth + w * 2;
