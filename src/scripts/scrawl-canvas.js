@@ -13,26 +13,17 @@ class SCEngine extends Engine {
     const name = n => `${namespace}-${n}`;
 
     // Variables
-    let pixRatio = scrawl.getPixelRatio();
-
     const { meter, count, width, height } = this;
-
-    let pixWidth = width / pixRatio;
 
     let canvas, ctx;
 
-    const rnd = Math.random;
-
-    const boxes = [];
+    const rnd = Math.random,
+      boxes = [];
 
     // Handle pixelRatio edge case where user drags browser between screens of different pixel densities
     scrawl.setPixelRatioChangeAction(() => {
 
-      pixRatio = scrawl.getPixelRatio();
-      pixWidth = width / pixRatio;
-
       buildCanvas();
-      
       buildBoxes(boxes, count.value);
     });
 
@@ -55,6 +46,7 @@ class SCEngine extends Engine {
 
       scrawl.makeAnimation({
         name: name('demo'),
+        maxFrameRate: 120,
         fn: () => {
           if (boxes.length !== count.value) buildBoxes(boxes, count.value);
 
@@ -74,10 +66,10 @@ class SCEngine extends Engine {
       boxes.length = 0;
 
       for (let i = 0; i < boxesRequired; i++) {
-        size = ~~((10 + rnd() * 40) / pixRatio);
-        x = rnd() * pixWidth;
-        y = ~~((rnd() * height) - (size / 2)) / pixRatio;
-        dx = (-1 - rnd()) / pixRatio;
+        size = ~~((10 + rnd() * 40));
+        x = ~~((rnd() * width) - (size / 2));
+        y = ~~((rnd() * height) - (size / 2));
+        dx = (-1 - rnd());
 
         boxes.push([x, y, dx, size]);
       }
@@ -97,7 +89,7 @@ class SCEngine extends Engine {
         ctx.fillRect(x, y, w, w);
 
         x += dX;
-        if (x < -w) x += pixWidth + w * 2;
+        if (x < -w) x += width + (w * 2);
         box[0] = x;
       }
     };
