@@ -15,7 +15,7 @@
     "@createjs/easeljs": "^2.0.0-beta.4",
     "@lightningjs/renderer": "0.6.0",
     "@mesh.js/core": "^1.1.23",
-    "@next2d/player": "^1.16.0",
+    "@next2d/player": "^2.0.0",
     "@svgdotjs/svg.js": "^3.1.1",
     "canvaskit-wasm": "^0.30.0",
     "fabric": "^6.0.0-beta20",
