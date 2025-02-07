@@ -22,6 +22,7 @@
     "fpsmeter": "0.3.1",
     "konva": "8.1.4",
     "leafer-ui": "^1.0.0-rc.9",
+    "littlejsengine": "^1.11.2",
     "p5": "^1.4.0",
     "paper": "^0.12.15",
     "parcel": "^2.10.3",
