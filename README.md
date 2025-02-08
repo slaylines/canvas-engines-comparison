@@ -25,9 +25,8 @@ https://benchmarks.slaylines.io/
 | [EaselJS](https://github.com/CreateJS/EaselJS)             | ![](https://badgen.net/bundlephobia/min/@createjs/easeljs) |
 | [SVG.js](https://github.com/svgdotjs/svg.js)               | ![](https://badgen.net/bundlephobia/min/@svgdotjs/svg.js)  |
 | [Next2D](https://next2d.app)                               | ![](https://badgen.net/bundlephobia/min/@next2d/player)    |
-| [Phaser 3](https://github.com/phaserjs/phaser)             | ![](https://badgen.net/bundlephobia/min/phaser)    |
-| [LittleJS](https://github.com/KilledByAPixel/LittleJS) | ![](https://badgen.net/bundlephobia/min/littlejsengine) |
-
+| [Phaser 3](https://github.com/phaserjs/phaser)             | ![](https://badgen.net/bundlephobia/min/phaser)            |
+| [LittleJS](https://github.com/KilledByAPixel/LittleJS)     | ![](https://badgen.net/bundlephobia/min/littlejsengine)    |
 
 Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the (highly unscientific) comparison of the performance in different browsers (MacBook Pro 2019, 8k boxes):
 
