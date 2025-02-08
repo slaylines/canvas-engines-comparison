@@ -8,7 +8,7 @@ https://benchmarks.slaylines.io/
 - Different choice of libraries used to render the scene :
 
 |                                                            | module kb                                                  |
-| ---------------------------------------------------------- | ---------------------------------------------------------- |
+|------------------------------------------------------------|------------------------------------------------------------|
 | [PixiJS](https://www.pixijs.com)                           | ![](https://badgen.net/bundlephobia/min/pixi.js)           |
 | [Mesh.js](https://github.com/mesh-js/mesh.js)              | ![](https://badgen.net/bundlephobia/min/@mesh.js/core)     |
 | [P5.js](https://p5js.org)                                  | ![](https://badgen.net/bundlephobia/min/p5)                |
@@ -26,6 +26,7 @@ https://benchmarks.slaylines.io/
 | [SVG.js](https://github.com/svgdotjs/svg.js)               | ![](https://badgen.net/bundlephobia/min/@svgdotjs/svg.js)  |
 | [Next2D](https://next2d.app)                               | ![](https://badgen.net/bundlephobia/min/@next2d/player)    |
 | [Phaser 3](https://github.com/phaserjs/phaser)             | ![](https://badgen.net/bundlephobia/min/phaser)    |
+| [LittleJS](https://github.com/KilledByAPixel/LittleJS) | ![](https://badgen.net/bundlephobia/min/littlejsengine) |
 
 
 Thanks to [KaliedaRik](https://github.com/KaliedaRik) for the (highly unscientific) comparison of the performance in different browsers (MacBook Pro 2019, 8k boxes):
