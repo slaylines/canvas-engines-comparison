@@ -39,7 +39,7 @@ class PixiEngine extends Engine {
   render() {
     this.app.ticker.remove(this.onTick, this);
     this.app.stage.removeChildren();
-    this.rects = {};
+    this.rects = [];
     for (let i = 0; i < this.count.value; i++) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
