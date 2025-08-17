@@ -4,7 +4,8 @@ https://benchmarks.slaylines.io/
 
 ## Description
 
-- Up to a million different rectangles moving on a canvas with various speed
+- Up to a million different rectangles moving on a canvas with various speed.
+- Be extra careful with "the danger zone" (⚠ / ⚡): it can easily hang your browser.
 - Different choice of libraries used to render the scene :
 
 |                                                            | module kb                                                  |
