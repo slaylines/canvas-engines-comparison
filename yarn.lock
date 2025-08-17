@@ -29,11 +29,9 @@
     "@babel/types" "^7.26.3"
 
 "@babel/runtime@^7.4.5", "@babel/runtime@^7.7.6":
-  version "7.26.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.26.0.tgz#8600c2f595f277c60815256418b85356a65173c1"
-  integrity sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==
-  dependencies:
-    regenerator-runtime "^0.14.0"
+  version "7.28.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.28.3.tgz#75c5034b55ba868121668be5d5bb31cc64e6e61a"
+  integrity sha512-9uIQ10o0WGdpP6GDhXcdOJPJuDgFtIDtN/9+ArJQ2NAfAmiuhTQdzkaTGR33v43GYS2UrSA0eX2pPPHoFVvpxA==
 
 "@babel/types@^7.26.3", "@babel/types@^7.6.1", "@babel/types@^7.9.6":
   version "7.26.3"
@@ -500,18 +498,10 @@
   dependencies:
     "@lezer/common" "^1.0.0"
 
-"@lightningjs/renderer@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@lightningjs/renderer/-/renderer-0.6.0.tgz#bb9bbc594563c754b076144696d796e60edc97c8"
-  integrity sha512-CGMs47vDN1Rd4t130NBuPmAMQ4FGzssFLPlaP541jSlD0TcvHCOFPnfOG/mnCOFqLIm0farUGIaXhqRAKvJUjQ==
-  dependencies:
-    "@lightningjs/threadx" "^0.3.4"
-    "@protobufjs/eventemitter" "^1.1.0"
-
-"@lightningjs/threadx@^0.3.4":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@lightningjs/threadx/-/threadx-0.3.5.tgz#f2f998097fe1962a5b7e8c7fb901330265a6b7f3"
-  integrity sha512-aUIUfP/d3S0Vg/Ror7CLbqQR6qu5AAdGRnQ5RQuSQz4t9X2p8TomKD7ShRxI1/FnRR7om2MwKIe1Dix/Axdgpg==
+"@lightningjs/renderer@^2.14.3":
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/@lightningjs/renderer/-/renderer-2.16.0.tgz#bc1390950dd583598237cf1b0f0ccf0bb6cae760"
+  integrity sha512-TA0litV7/ZMgRjc54GvXavzjBJFSZ8T3z7ohel4dqE3Tw9N3hC3aBmkey6PpF4usQ8JemNBMNgj7/2gR7bINhw==
 
 "@lmdb/lmdb-darwin-arm64@2.8.5":
   version "2.8.5"
@@ -616,90 +606,112 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.3.tgz#0aa5502d547b57abfc4ac492de68e2006e417242"
   integrity sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==
 
-"@next2d/core@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/core/-/core-1.18.12.tgz#d85b0ac5c922d52f6379263c50e9e78d43dc22e8"
-  integrity sha512-R+aGfiv1ntRG0kjDV5pWRyU/lvztwxnJvq+GQVj1rymT6DHWXPUhfD7rvDhMjwnj/Kfzuh4r1Wjb2LDOQeoWdw==
+"@next2d/cache@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/cache/-/cache-2.5.0.tgz#81a89d12d0173671af83ce601bf5627686a10f6d"
+  integrity sha512-Bctf0NUYM7vK8hIKcRJQcJS6YEP9rqOmmV+Z3FGyTikic3lTUMFEU28LVPZcUiTBUnsr9SUXxHXwygaExkeDJw==
 
-"@next2d/display@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/display/-/display-1.18.12.tgz#6e573ff01b8d559d95ba119bc56c050799a22209"
-  integrity sha512-c+LPZfiWbSsaBP9/MrMWHYrV3D+857Xs8KPVCjxo81vSzQVM2HKzI1400ZmV66rasKE7dHg5yRFXn5xBPn1IGA==
-
-"@next2d/events@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/events/-/events-1.18.12.tgz#a5620d7197b39c175c1cfd7b687c6fcfe02fd257"
-  integrity sha512-Naw12PvII5jmyvjCCmmFjeUVDI/WzQdKlULRPFeWQX3Tk1aICfmotPxdLyTIYTUUC6WyqwdQPt+vOx74G6yyNQ==
-
-"@next2d/filters@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/filters/-/filters-1.18.12.tgz#d75fccfd75fbb5f59f6b02c6d38eb75c1a72b34a"
-  integrity sha512-I/QQaGji3OK91GBwnQTx6QdofSmGp7uDtemYp8tAzQiLSTeIF1F4cSUsKezy9cAGyrGcVqfO+fYxa+0rC1qROQ==
-
-"@next2d/geom@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/geom/-/geom-1.18.12.tgz#fbeed784ef397e6ad9dd1054185e56bbfc09e29d"
-  integrity sha512-pal5UWk+3vhX0y1c3I/CmMpVdqiiRRtP+wIeMaXhiWmRaLvJ7NvKoj1rz9JD8GAZ7EZoutD8MfvmbutI173M4Q==
-
-"@next2d/interface@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/interface/-/interface-1.18.12.tgz#432dab2f70fc55e456b834d68e0bac4c90d2315d"
-  integrity sha512-QF36VMck/QUGPqvgvJgylwldP5fqFlR5DNptzrP9UfT++KCKW0+bAT7l6fe2Z/mVFX74NakV+OJBEo1TvN4wYA==
-
-"@next2d/media@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/media/-/media-1.18.12.tgz#9bc4d7b65b55bcd9880b1f4fee19dc7023b90cfc"
-  integrity sha512-ktJ2/j5fMDZ2aDwNpQNzbswgsoVlr2pOby6ItxpOpwrmOA3lCLessL/MhsbG2+bb6BtpEEFxIE6BOjf1MWXkOg==
-
-"@next2d/net@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/net/-/net-1.18.12.tgz#585f6c0cab41fc9bfaec13f456591e73083c8446"
-  integrity sha512-2vawifyI/eJVgJvp8HQqdlLbtrUaeTxYvnCgwZnoLopEc4+pOSg5fbLNQQR3wv4RMCMMpR5Y9tAqJpn29+e+3A==
-
-"@next2d/player@^1.16.0":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/player/-/player-1.18.12.tgz#a8f547dcd1e2aa3091756944bcdeb24ae820d644"
-  integrity sha512-8fjDgg224Z+J8CpT0EY9ZgImxGqCu0EhrjQ5EIr0hog+nS6Y1JEmCmZOtTbh4c3ZBffgPULjVNodkBBeTRBk5g==
+"@next2d/core@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/core/-/core-2.5.0.tgz#2f835408d559b6b9bd80940eabe93a48ebce31de"
+  integrity sha512-Tnfuczrkanyw2ySyZJ4MJ4pP6sYfCIECKYSIh1j+Rw5W8OjFKB4wvAsw/gYYe5HBFsEdBwELieikj0oDSXSF7w==
   dependencies:
-    "@next2d/core" "1.18.12"
-    "@next2d/display" "1.18.12"
-    "@next2d/events" "1.18.12"
-    "@next2d/filters" "1.18.12"
-    "@next2d/geom" "1.18.12"
-    "@next2d/interface" "1.18.12"
-    "@next2d/media" "1.18.12"
-    "@next2d/net" "1.18.12"
-    "@next2d/share" "1.18.12"
-    "@next2d/text" "1.18.12"
-    "@next2d/ui" "1.18.12"
-    "@next2d/util" "1.18.12"
-    "@next2d/webgl" "1.18.12"
-    htmlparser2 "^9.1.0"
+    "@next2d/core" "2.5.0"
+    "@next2d/display" "2.5.0"
+    "@next2d/events" "2.5.0"
+    "@next2d/filters" "2.5.0"
+    "@next2d/geom" "2.5.0"
+    "@next2d/media" "2.5.0"
+    "@next2d/net" "2.5.0"
+    "@next2d/render-queue" "2.5.0"
+    "@next2d/text" "2.5.0"
+    "@next2d/ui" "2.5.0"
 
-"@next2d/share@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/share/-/share-1.18.12.tgz#94b0cd22579051c4b28a08a91529049d5d5016e5"
-  integrity sha512-67vM/p8hnvfcSTGShgdtNqGzkmpqiC8FoZOkdBpYKwF2vLAUi9Pw/AuiD/RjMT2IriaDYVDMsC+T8nRcVMr7gw==
+"@next2d/display@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/display/-/display-2.5.0.tgz#cc50914d703a7e4b86606ced3ed4ba39fdbdc17e"
+  integrity sha512-J9y4DDaOmF4E1cRUnamtSbXfzEbHx60cy/svE36bX9H8q5AT4H14qkVZKkykE4oMYe6alDxKWV1sDt9JErO0zQ==
+  dependencies:
+    "@next2d/events" "2.5.0"
+    "@next2d/filters" "2.5.0"
+    "@next2d/geom" "2.5.0"
+    "@next2d/media" "2.5.0"
+    "@next2d/net" "2.5.0"
+    "@next2d/render-queue" "2.5.0"
+    "@next2d/text" "2.5.0"
+    "@next2d/ui" "2.5.0"
 
-"@next2d/text@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/text/-/text-1.18.12.tgz#400ff66fe2c8fbf32f09e90c6cd8d3b0059bf985"
-  integrity sha512-19WM4E8SKLXG5K1XqAACF9qFlUgCUwGsuHLfBeAXTmAVjoCHOyr/7l+99Yz6nrvnMH9k2hGpSUAWHZZXjwySDw==
+"@next2d/events@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/events/-/events-2.5.0.tgz#d6dad8eac77ecb7d48c57daa59620438bf10e243"
+  integrity sha512-ljaeTQL5xJMA8b0qqtYUo4VoYpmGLkWQRMXzMcraBPjxWJGnVSj1yer0o+Cu4ghuI8uB3UwyVj44VwnkKQb6lA==
 
-"@next2d/ui@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/ui/-/ui-1.18.12.tgz#53a3191119a7d2ba6846a04ac10f7c055f8eb06f"
-  integrity sha512-nB2oc++6m1Noya/6zkSsyq6aOMTAKVwD1XNZfWm4b5dY+vbQkHNNNM3eN4dLP+urvLWkfSAvq4k4sALyXPdJuA==
+"@next2d/filters@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/filters/-/filters-2.5.0.tgz#bdcf78e03bbb3a1a09088ab3ef78c9187b47a224"
+  integrity sha512-f1ctbv/qOZ25QCReUU1ES1g6FTvHw0T7rDkMAu6zvumjjSvZ+9EEYi73lnS1cZJT11eG3EIPORzSjF54/BguNQ==
 
-"@next2d/util@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/util/-/util-1.18.12.tgz#aaa199593af4a1caae1c779a9883b4d3d88d3c41"
-  integrity sha512-U5XyfxRAzDN4U80DBaEG8ru4zYZKjefFTbsjCj6th7yxlVINlCB36jYPhr7ymBrWV/IcAhu1oglYynSuGPSRTQ==
+"@next2d/geom@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/geom/-/geom-2.5.0.tgz#90f46bdd6c78f21053658ed00279ec77831befd3"
+  integrity sha512-18SX2R0FSzBXy48Y7ZohS4mDlbtNfqUGXILOY+2lJqx48MRm7B6FQMmgeO2TmvbsRZ4jsC7cZVi8x15Z716RMw==
 
-"@next2d/webgl@1.18.12":
-  version "1.18.12"
-  resolved "https://registry.yarnpkg.com/@next2d/webgl/-/webgl-1.18.12.tgz#9d40e3c0bc313946cebd26f55232c8c762a67e2f"
-  integrity sha512-3TvaGge1WMpOLFKbQRLp8LpMMEsjWet4nDqiOxpp5wscfk3hL6t6pziKa9r/FmoGS41RqjW/BoEukCLE5scbFg==
+"@next2d/media@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/media/-/media-2.5.0.tgz#5679769a20428b2d8a03fced9ef30e7c9a24e6c1"
+  integrity sha512-s8URL6gG5iritNI1Y9bY9fy2Ex8BCOa+iZkXXAMGftXvO4s0ZuCPJeVRDBJJfqL6y7sdFZ17y2ZGYLtW8tRHQA==
+  dependencies:
+    "@next2d/display" "2.5.0"
+    "@next2d/events" "2.5.0"
+    "@next2d/geom" "2.5.0"
+    "@next2d/net" "2.5.0"
+
+"@next2d/net@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/net/-/net-2.5.0.tgz#2cade03a97655444d6f71a664f6e5739ad9d4bea"
+  integrity sha512-fY2V48tNmXoQwa1cUp0zAi1U514861mDu9DfMzHGYMRmCBxKY9QzFDyV5VyA6Q+nS1uF2P7RrMboTXB669ro7A==
+
+"@next2d/player@^2.1.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/player/-/player-2.5.0.tgz#d084ed89b78c452478a97c103cc63e0c72798e68"
+  integrity sha512-y+fwHU87Nn2+hcyNClp9/w3OfOrLSU15rm+hlWrWEozMFup/KmAG+wBB2nprO+CnY21nONNFzxUMQollzefMeg==
+  dependencies:
+    "@next2d/cache" "2.5.0"
+    "@next2d/core" "2.5.0"
+    "@next2d/display" "2.5.0"
+    "@next2d/events" "2.5.0"
+    "@next2d/filters" "2.5.0"
+    "@next2d/geom" "2.5.0"
+    "@next2d/media" "2.5.0"
+    "@next2d/net" "2.5.0"
+    "@next2d/render-queue" "2.5.0"
+    "@next2d/text" "2.5.0"
+    "@next2d/ui" "2.5.0"
+    fflate "^0.8.2"
+    htmlparser2 "^10.0.0"
+
+"@next2d/render-queue@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/render-queue/-/render-queue-2.5.0.tgz#6de15b7c3fe5a4742d0b169fd00a6fe4d7ef3dc9"
+  integrity sha512-DlSQoKn3lkWGXRo2CS5wPyw1UtheCuyx1OaMc0a17EkGTv4/+mFlcDX/2U8xQQ2L3X+l+SKmhJtsEdAU/Is9+g==
+
+"@next2d/text@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/text/-/text-2.5.0.tgz#4f6a10757baaf3edec6d3f88daab9d73306b8e60"
+  integrity sha512-r92cOiBgKvFm4ZdDV28TAn1Epsa35lMTo1TytQDy7RPs1uhvVr7mDEjjKrlkmO5wFuTFuf/rlDFxMtzy6FXDUg==
+  dependencies:
+    "@next2d/cache" "2.5.0"
+    "@next2d/display" "2.5.0"
+    "@next2d/events" "2.5.0"
+    "@next2d/geom" "2.5.0"
+    "@next2d/ui" "2.5.0"
+
+"@next2d/ui@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@next2d/ui/-/ui-2.5.0.tgz#5553c9d65f5494a4c17d8265fe9bc9b085c9b8f6"
+  integrity sha512-TMu9TqGlNBkzLaftNY+CqG32I3Q4mmk7GVqGMTZPc+6S3yZph9AbqsjgZMYqad1MSCErLJouUfITWMBVjwvvmg==
+  dependencies:
+    "@next2d/events" "2.5.0"
 
 "@parcel/bundler-default@2.13.3":
   version "2.13.3"
@@ -1966,11 +1978,6 @@
     eventemitter3 "^3.1.0"
     url "^0.11.0"
 
-"@protobufjs/eventemitter@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@protobufjs/eventemitter/-/eventemitter-1.1.0.tgz#355cbc98bafad5978f9ed095f397621f1d066b70"
-  integrity sha512-j9ednRT81vYJ9OfVuXG6ERSTdEL1xVsNgqpkxMsbIabzSo3goCjDIveeGv5d03om39ML71RdmrGNjG5SReBP/Q==
-
 "@sindresorhus/fnv1a@^1.0.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/fnv1a/-/fnv1a-1.2.0.tgz#d554da64c406f3b62ad06dfce9efd537a4a55de4"
@@ -2588,6 +2595,15 @@ domutils@^3.0.1, domutils@^3.1.0:
     domelementtype "^2.3.0"
     domhandler "^5.0.3"
 
+domutils@^3.2.1:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/domutils/-/domutils-3.2.2.tgz#edbfe2b668b0c1d97c24baf0f1062b132221bc78"
+  integrity sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==
+  dependencies:
+    dom-serializer "^2.0.0"
+    domelementtype "^2.3.0"
+    domhandler "^5.0.3"
+
 dotenv-expand@^11.0.6:
   version "11.0.7"
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-11.0.7.tgz#af695aea007d6fdc84c86cd8d0ad7beb40a0bd08"
@@ -2638,6 +2654,11 @@ entities@^4.2.0, entities@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.5.0.tgz#5d268ea5e7113ec74c4d033b79ea5a35a488fb48"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
+
+entities@^6.0.0:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-6.0.1.tgz#c28c34a43379ca7f61d074130b2f5f7020a30694"
+  integrity sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==
 
 env-paths@^2.2.1:
   version "2.2.1"
@@ -2726,6 +2747,11 @@ fabric@^6.0.0-beta20:
   optionalDependencies:
     canvas "^2.11.2"
     jsdom "^20.0.1"
+
+fflate@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.8.2.tgz#fc8631f5347812ad6028bbe4a2308b2792aa1dea"
+  integrity sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==
 
 fill-range@^7.1.1:
   version "7.1.1"
@@ -2889,6 +2915,16 @@ htmlnano@^2.0.0:
     posthtml "^0.16.5"
     timsort "^0.3.0"
 
+htmlparser2@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-10.0.0.tgz#77ad249037b66bf8cc99c6e286ef73b83aeb621d"
+  integrity sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==
+  dependencies:
+    domelementtype "^2.3.0"
+    domhandler "^5.0.3"
+    domutils "^3.2.1"
+    entities "^6.0.0"
+
 htmlparser2@^7.1.1:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-7.2.0.tgz#8817cdea38bbc324392a90b1990908e81a65f5a5"
@@ -2899,7 +2935,7 @@ htmlparser2@^7.1.1:
     domutils "^2.8.0"
     entities "^3.0.1"
 
-htmlparser2@^9.0.0, htmlparser2@^9.1.0:
+htmlparser2@^9.0.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-9.1.0.tgz#cdb498d8a75a51f739b61d3f718136c369bc8c23"
   integrity sha512-5zfg6mHUoaer/97TxnGpxmbR7zJtPwIYFMZ/H5ucTlPZhKvtum05yiPK3Mgai3a0DyVxv7qYqoweaEd2nrYQzQ==
@@ -3819,7 +3855,7 @@ readable-stream@^3.6.0:
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
 
-regenerator-runtime@^0.14.0, regenerator-runtime@^0.14.1:
+regenerator-runtime@^0.14.1:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz#356ade10263f685dda125100cd862c1db895327f"
   integrity sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==
